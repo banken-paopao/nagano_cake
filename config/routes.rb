@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get '/' => 'admin#homes'
+    resources :items, except: [:destroy]
+    resources :genres, only: [:index, :create, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
+  end
+  
   scope module: :public do
     root to: 'homes#top'
     get '/about' => 'homes#about'
