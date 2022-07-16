@@ -1,3 +1,5 @@
+<h2>ショッピングカート</h2>
+<div><%= link_to 'カートを空にする', delete_all_cart_items_path, class: 'btn btn-sm btn-danger' %></div>
 <table class="table">
   <thead>
     <tr>
@@ -9,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% current.customer.cart_items.each do |cart_item| %>
+    <% current_customer.cart_items.each do |cart_item| %>
       <tr>
         <td>
           <%= image_tag cart_item.item.get_image(50,75) %>
@@ -23,8 +25,10 @@
             <%= f.submit '変更' %>
           <% end %>
         </td>
-        <td><%= (cart_item.items.with_tax_price * cart_item.amount).to_s(:delimited) %></td>
+        <td><%= (cart_item.item.with_tax_price * cart_item.amount).to_s(:delimited) %></td>
         <td><%= link_to '削除する', cart_item_path(cart_item), method: :delete %></td>
       </tr>
+    <% end %>
   </tbody>
 </table>
+<div></div>
