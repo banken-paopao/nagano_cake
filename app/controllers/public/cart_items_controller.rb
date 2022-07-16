@@ -1,5 +1,6 @@
 class Public::CartItemsController < ApplicationController
   def index
+    @all_with_tax_price = 0
   end
 
   def update
@@ -12,6 +13,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy_all
+    current_customer.cart_items.destroy_all
+    redirect_to request.referer
   end
 
   def create

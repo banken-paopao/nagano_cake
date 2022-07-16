@@ -1,5 +1,5 @@
 <h2>ショッピングカート</h2>
-<div><%= link_to 'カートを空にする', delete_all_cart_items_path, class: 'btn btn-sm btn-danger' %></div>
+<div><%= link_to 'カートを空にする', destroy_all_cart_items_path, method: :delete, class: 'btn btn-md btn-danger' %></div>
 <table class="table">
   <thead>
     <tr>
@@ -22,13 +22,23 @@
         <td>
           <%= form_with model: cart_item, local:true do |f| %>
             <%= f.select :amount, *[1..10] %>
-            <%= f.submit '変更' %>
+            <%= f.submit '変更' ,class: 'btn btn-md btn-success'%>
           <% end %>
         </td>
-        <td><%= (cart_item.item.with_tax_price * cart_item.amount).to_s(:delimited) %></td>
-        <td><%= link_to '削除する', cart_item_path(cart_item), method: :delete %></td>
+        <td><%= cart_item.subtotal.to_s(:delimited) %></td>
+        <% @all_with_tax_price +=  cart_item.subtotal %>
+        <td><%= link_to '削除する', cart_item_path(cart_item), method: :delete, class: 'btn btn-md btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<div></div>
+<div><%= link_to '買い物を続ける', root_path, class: 'btn btn-md btn-primary' %></div>
+<table>
+  <tbody>
+    <tr>
+      <td>合計金額</td>
+      <td><%= @all_with_tax_price.to_s(:delimited) %></td>
+    </tr>
+  </tbody>
+</table>
+<diV><%= link_to '注文情報入力画面', new_order_path %></diV>
