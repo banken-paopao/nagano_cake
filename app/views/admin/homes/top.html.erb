@@ -1,2 +1,39 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h2>注文履歴一覧</h2>
+  </div>
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order_details.each do |order_detail| %>
+          <tr>
+            <td><%= order_detail.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+            <td><%= order_detail.order.customer.full_name %></td>
+            <td><%= order_detail.amount %></td>
+            <td>
+              <% if order_detail.order.status == 0 %>
+                入金待ち
+              <% elsif order_detail.order.status == 1 %>
+                入金確認
+              <% elsif order_detail.order.status == 2 %>
+                製作中
+              <% elsif order_detail.order.status == 3 %>
+                発送準備中
+              <% elsif order_detail.order.status == 4 %>
+                発送済み
+              <% end %>  
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
