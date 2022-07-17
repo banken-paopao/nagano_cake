@@ -81,7 +81,7 @@
         </tr>
         <tr>
           <th>請求金額合計</th>
-          <td><%= @order_detail.order.total_payment %></td>
+          <td><%= @total + @order_detail.order.shipping_cost %></td>
         </tr>
       </table>
     </div>
