@@ -6,34 +6,29 @@
     <table class="mt-3" cellpadding="10">
       <tr>
         <th>購入者</th>
-        <td><%= @order_detail.order.customer.full_name %></td>
+        <td><%= link_to @order_detail.order.customer.full_name,admin_path %></td>
       </tr>
       <tr>
         <th>注文日</th>
-        <td><%= @order_detail.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+        <td><%= @order_detail.created_at.strftime('%Y/%m/%d') %></td>
       </tr>
       <tr>
         <th>配送先</th>
         <td>
-          <%= @order_detail.order.post_code %><br>
-          <%= @order_detail.order.name %>
+          <%= @order_detail.order.address_display %><br>
         </td>
       </tr>
       <tr>
         <th>支払方法</th>
         <td>
-          <% if @order_detail.order.payment_method == 0 %>
-            クレジットカード
-          <% else %>
-            銀行振込
-          <% end %>
+          <%= @order_detail.order.payment_method_i18n %>
         </td>
       </tr>
       <tr>
         <th>注文ステータス</th>
         <td>
-          <%= form_with model: Order.new, url: admin_order_path(@order_detail.order), method: :patch do |f| %>
-            <%= f.select :status, [["入金待ち", 0],["入金確認", 1],["製作中", 2],["発送準備中",3],["発送済み",4]] %>
+          <%= form_with model: @order_detail.order, url: admin_order_path(@order_detail.order.id), method: :patch do |f| %>
+            <%= f.select :status, options_for_select(Order.statuses_i18n.keys.map { |k| [Order.statuses_i18n[k], k]}, selected: @order_detail.order.status), {prompt: "選択してください"}, class: "prefecture-select" %>
             <%= f.submit "更新", class: "ml-3 btn btn-success" %>
           <% end %>
         </td>
@@ -56,18 +51,18 @@
           <% @order_details.each do |order_detail| %>
             <tr>
               <td><%= order_detail.item.name %></td>
-              <td><%= (order_detail.item.price * 1.1).floor %></td>
+              <td><%= order_detail.item.with_tax_price %></td>
               <td><%= order_detail.amount %></td>
-              <td><%= (order_detail.item.price * 1.1).floor * order_detail.amount %></td>
+              <td><%= order_detail.subtotal %></td>
               <td>
-                <%= form_with model: OrderDetail.new, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
-                  <%= f.select :making_status, [["製作不可", 0],["製作待ち", 1],["製作中", 2],["製作完了",3]] %>
+                <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
+                  <%= f.select :making_status, options_for_select(OrderDetail.making_statuses_i18n.keys.map { |k| [OrderDetail.making_statuses_i18n[k], k]}, selected: order_detail.making_status), {prompt: "選択してください"}, class: "prefecture-select" %>
                   <%= f.submit "更新", class: "ml-3 btn btn-success" %>
                 <% end %>
               </td>
             </tr>
             <!--商品合計金額(画面上非表示)-->
-            <% @total += @total + (order_detail.item.price * 1.1).floor * order_detail.amount %>
+            <% @total += @total + order_detail.subtotal %>
             <!--ここまで-->
           <% end %>
         </tbody>
