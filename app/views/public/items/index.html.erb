@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="col-9" style = "width: 100%">
-        <% @itesm.each do |item| %>
+        <% @items.each do |item| %>
           <div clas="item-group" style = "width: 25%" >
             <% if customer_signed_in? %>
               <%= link_to item_path(item.id) do %>
