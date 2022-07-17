@@ -1,7 +1,18 @@
-<h3>ジャンル編集</h3>
-
-<%= form_with model: [:admin, @genre] do |f| %>
-  <%= f.label :name, "ジャンル名" %>
-  <%= f.text_field :name %>
-  <%= f.submit "変更を保存" %>
-<% end %>
+<div class="container py-5 text-secondary">
+  <div class="row">
+    <div class="col-lg-3">
+      <h5 class="border-bottom">ジャンル編集</h5>
+    </div>
+  </div>
+  <div class="row my-5">
+    <div class="col-lg-10">
+      <%= form_with model: [:admin, @genre] do |f| %>
+      <div class="form-group d-flex">
+       <%= f.label :name, "ジャンル名" %>
+       <%= f.text_field :name, placeholder: "ジャンル名", class: "form-control col-lg-3 mx-2" %>
+       <%= f.submit "変更を保存", class: "btn btn-outline-secondary" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
