@@ -69,9 +69,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+    #注文完了画面からページを戻ろうとするとshow画面に行くのを阻止
     if params[:id] == 'confirm'
       redirect_to root_path
     end
+    @order = Order.find(params[:id])
   end
 
   private
