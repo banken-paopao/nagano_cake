@@ -1,39 +1,51 @@
-<h3>商品一覧</h3>
-
-<%= link_to "商品追加", new_admin_item_path %>
-<!--商品追加のボタンを作る-->
-
-<table>
-  <thead>
-    <tr>
-      <th>商品ID</th>
-      <th>商品名</th>
-      <th>税抜価格</th>
-      <th>ジャンル</th>
-      <th colspan="3"></th>
-      <th>ステータス</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-    <tr>
-      <td>
-        <%= item.id %>
-      </td>
-      <td>
-        <%= link_to item.name, admin_item_path(item) %>
-      </td>
-      <td>
-        <%= item.price %>
-      </td>
-      <td>
-        <%= item.genre.name %>
-      </td>
-      <td colspan="3"></td>
-      <td>
-        <%= item.is_active ? "販売中" : "販売停止中" %>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container py-5 text-secondary">
+  <div class="row">
+    <div class="col-lg-3">
+      <h5 class="border-bottom">商品一覧</h5>
+    </div>
+  </div>
+  <div class="text-right">
+    <%= link_to "商品追加", new_admin_item_path %>
+    <!--商品追加のボタンを作る-->
+  </div>
+  <table class="table text-secondary table-hover">
+    <thead class="table-secondary">
+      <tr>
+        <th>商品ID</th>
+        <th>商品名</th>
+        <th>税抜価格</th>
+        <th>ジャンル</th>
+        <th colspan="3"></th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+      <tr>
+        <td>
+          <%= item.id %>
+        </td>
+        <td>
+          <%= link_to item.name, admin_item_path(item) %>
+        </td>
+        <td>
+          <%= item.price.to_s(:delimited) %>
+        </td>
+        <td>
+          <%= item.genre.name %>
+        </td>
+        <td colspan="3"></td>
+          <% if item.is_active %>
+            <td class="text-success">
+              <%= item.sale_status %>
+            </td>
+          <% else %>
+            <td class="text-danger">
+              <%= item.sale_status %>
+            </td>
+          <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
