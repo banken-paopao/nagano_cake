@@ -1,2 +1,37 @@
-<h1>Public::Items#index</h1>
-<p>Find me in app/views/public/items/index.html.erb</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="mt-4">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>ジャンル検索</th>
+              </tr>
+            </tbody>
+          </table>
+          <thead>
+            <% @genres.each do |genre| %>
+              <tr>
+                <td><%= genre.name %></td>
+              </tr>
+            <% end %>
+          </thead>
+        </div>
+      </div>
+      <div class="col-9" style = "width: 100%">
+        <% @items.each do |item| %>
+          <div clas="item-group" style = "width: 25%" >
+            <% if customer_signed_in? %>
+              <%= link_to item_path(item.id) do %>
+                <%= image_tag item.get_image(200,200) %>
+              <% end %>
+            <% else %>
+              <%= image_tag item.get_image(200,200) %>
+            <% end %>
+            <%= item.name %><br>
+            ¥<%= (item.price).to_s(:delimited) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
