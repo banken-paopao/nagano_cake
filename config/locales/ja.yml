@@ -4,3 +4,15 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         transfar: "銀行振込"
+      status:
+        wait: "入金待ち"
+        confirm: "入金確認"
+        making: "製作中"
+        preparing: "発送準備中"
+        finish: "発送済み"
+    order_detail:
+      making_status:
+        cant: "製作不可"
+        wait: "製作待ち"
+        now: "製作中"
+        finish: "製作完了"
