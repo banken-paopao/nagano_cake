@@ -13,6 +13,11 @@
   <body>
     <%= render "layouts/header" %>
     <main>
+      <div class="text-center bg-primary text-white flash">
+        <%if flash[:notice] %>
+          <p><%= flash[:notice] %></p>
+        <% end %>
+      </div>
       <%= yield %>
     </main>
     <%= render "layouts/footer" %>
