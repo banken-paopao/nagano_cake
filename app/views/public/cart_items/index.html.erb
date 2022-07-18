@@ -4,7 +4,9 @@
       <div class="d-flex my-3">
         <h5 class="my-auto">ショッピングカート</h5>
         <div class="ml-auto">
-          <%= link_to 'カートを空にする', destroy_all_cart_items_path, method: :delete, class: 'btn btn-md btn-danger' %>
+          <% unless current_customer.cart_items.blank? %>
+            <%= link_to 'カートを空にする', destroy_all_cart_items_path, method: :delete, class: 'btn btn-md btn-danger' %>
+          <% end %>
         </div>
       </div>
       <table class="table">
@@ -50,7 +52,9 @@
           </tbody>
         </table>
       </div>
-      <div class="row justify-content-center"><%= link_to '注文情報入力画面', new_order_path, class: 'btn btn-md btn-success my-3' %></div>
+      <% unless current_customer.cart_items.blank? %>
+        <div class="row justify-content-center"><%= link_to '注文情報入力画面', new_order_path, class: 'btn btn-md btn-success my-3' %></div>
+      <% end %>
     </div>
   </div>
 </div>
