@@ -8,30 +8,30 @@
     <table class="mt-3" cellpadding="10">
       <tr>
         <th>購入者</th>
-        <td><%= link_to @order_detail.order.customer.full_name,admin_path %></td>
+        <td><%= link_to @order.customer.full_name,admin_customer_path(@order.customer) %></td>
       </tr>
       <tr>
         <th>注文日</th>
-        <td><%= @order_detail.created_at.strftime('%Y/%m/%d') %></td>
+        <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
       </tr>
       <tr>
         <th>配送先</th>
         <td>
-          <%= @order_detail.order.address_display %><br>
-          <%= @order_detail.order.name %>
+          <%= @order.address_display %><br>
+          <%= @order.name %>
         </td>
       </tr>
       <tr>
         <th>支払方法</th>
         <td>
-          <%= @order_detail.order.payment_method_i18n %>
+          <%= @order.payment_method_i18n %>
         </td>
       </tr>
       <tr>
         <th>注文ステータス</th>
         <td>
-          <%= form_with model: @order_detail.order, url: admin_order_path(@order_detail.order.id), method: :patch do |f| %>
-            <%= f.select :status, options_for_select(Order.statuses_i18n.keys.map { |k| [Order.statuses_i18n[k], k]}, selected: @order_detail.order.status), {prompt: "選択してください"}, class: "prefecture-select" %>
+          <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
+            <%= f.select :status, options_for_select(Order.statuses_i18n.keys.map { |k| [Order.statuses_i18n[k], k]}, selected: @order.status), {prompt: "選択してください"}, class: "prefecture-select" %>
             <%= f.submit "更新", class: "ml-3 btn btn-success" %>
           <% end %>
         </td>
@@ -81,11 +81,11 @@
         </tr>
         <tr>
           <th>送料</th>
-          <td><%= @order_detail.order.shipping_cost %>円</td>
+          <td><%= @order.shipping_cost %>円</td>
         </tr>
         <tr>
           <th>請求金額合計</th>
-          <td><%= @total + @order_detail.order.shipping_cost %>円</td>
+          <td><%= @total + @order.shipping_cost %>円</td>
         </tr>
       </table>
     </div>
