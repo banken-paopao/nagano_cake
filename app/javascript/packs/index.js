@@ -6,17 +6,17 @@ $(document).on('turbolinks:load', function(){
   });
 
   $(function(){
-    $('.social-link').on('mouseover',
+    $('.social-link').hover(
       function(){
         $(this).children('a').animate({
           'font-size': '32px'
         }, 300);
-      }).on('mouseout', 
-      function(){
+      }, function(){
         $(this).children('a').animate({
           'font-size': '24px'
         }, 300);
       });
-    });
+  });
 
 });
+
