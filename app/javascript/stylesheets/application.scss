@@ -2,7 +2,7 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 main {
-  padding-bottom: 148px;
+  min-height: 100vh;
 }
 
 .navbar li{
@@ -14,7 +14,7 @@ ul, li {
 }
 
 .social-link {
-  background-color: #b8a9a1;
+  background-color: #e89374;
   border-radius: 50%;
   width: 44px;
   height: 44px;
@@ -85,4 +85,10 @@ ul, li {
   top: 25%;
   left: 20%;
   text-align: center;
+}
+
+footer .admin-sign-in {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
