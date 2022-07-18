@@ -29,3 +29,39 @@ ul, li {
   font-size: 24px;
   color: #fff;
 }
+
+.admin-add-item {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.admin-add-item:hover {
+  position: relative;
+  bottom: 1px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
+}
+
+.admin-add-item:active {
+  position: relative;
+  top: 3px;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.admin-item-btn {
+  width: 48px;
+  height: 48px;
+  font-size: 32px;
+  color: #6c757d;
+}
+
+.admin-item-btn:hover {
+  color: #6c757d;
+}
+
+.admin-item-btn:active {
+  color: #6c757d;
+}
