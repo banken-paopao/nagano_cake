@@ -1,10 +1,12 @@
 /*global $*/
 $(document).on('turbolinks:load', function(){
 
+// flashのフェードアウト
   $(function() {
     $('.flash').fadeOut(3500);
   });
 
+// ソーシャルアイコンのアニメーション
   $(function(){
     $('.social-link').hover(
       function(){
