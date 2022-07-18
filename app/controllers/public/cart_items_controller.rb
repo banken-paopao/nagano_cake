@@ -19,10 +19,19 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
+    cart_item = current_customer.cart_items.new(cart_item_params)
+    if cart_item.save
+      redirect_to cart_items_path
+    else
+      @item = Item.find(params[:cart_item][:item_id])
+      @cart_item = CartItem.new
+      @genres = Genre.all
+      render 'public/items/show'
+    end
   end
 
   private
   def cart_item_params
-      params.require(:cart_item).permit(:amount)
+      params.require(:cart_item).permit(:item_id, :amount)
   end
 end
