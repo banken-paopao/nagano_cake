@@ -1,5 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+main {
+  padding-bottom: 148px;
+}
+
 .navbar li{
   margin: 0 10px;
 }
