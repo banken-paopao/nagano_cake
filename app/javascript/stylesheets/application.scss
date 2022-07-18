@@ -1,4 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 .navbar li{
   margin: 0 10px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.social-link {
+  background-color: #b8a9a1;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+}
+
+.social-link a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  color: #fff;
 }
