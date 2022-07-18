@@ -2,7 +2,7 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 main {
-  padding-bottom: 148px;
+  min-height: 100vh;
 }
 
 .navbar li{
@@ -14,7 +14,7 @@ ul, li {
 }
 
 .social-link {
-  background-color: #b8a9a1;
+  background-color: #e89374;
   border-radius: 50%;
   width: 44px;
   height: 44px;
@@ -64,4 +64,31 @@ ul, li {
 
 .admin-item-btn:active {
   color: #6c757d;
+}
+
+.main-top {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.main-top-image {
+  width: 100%;
+  height: 90%;
+  opacity: 0.3;
+  object-fit: cover;
+}
+
+.main-top-text {
+  position: absolute;
+  transform: translate(-75%,-25%);
+  top: 25%;
+  left: 20%;
+  text-align: center;
+}
+
+footer .admin-sign-in {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

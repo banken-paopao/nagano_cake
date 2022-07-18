@@ -1,35 +1,37 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3">
-      <div class="mt-4">
-        <%= render 'public/items/genre',genres: @genres %>
+<div class="main">
+  <div class="main-top">
+    <%= image_tag "cake2.jpeg", class: "main-top-image" %>
+    <p class="main-top-text">ようこそ、ながのCAKEへ！</br>
+    このサイトは、ケーキ販売のECサイトになります。</br>
+    会員でない方も商品の閲覧はできますが、</br>
+    購入には会員登録が必要になります。</p>
+  </div>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="mt-1">
+          <%= render 'public/items/genre',genres: @genres %>
+        </div>
       </div>
-    </div>
-    <div class="col-6 offset-3">
-      <div class="main-top">
-        <p class="main-top-text">ようこそ、ながのCAKEへ！</br>
-        このサイトは、ケーキ販売のECサイトになります。</br>
-        会員でない方も商品の閲覧はできますが、</br>
-        購入には会員登録が必要になります。</p>
-      </div>
-      <div style = "width: 100%">
-        <% @items.each do |item| %>
-          <div clas="item-group" style = "width: 25%" >
-            <% if customer_signed_in? %>
-              <%= link_to item_path(item.id) do %>
-                <%= image_tag item.get_image(200,200) %>
+      <div class="col-8 offset-1">
+        <h2 class="bg-light text-center">新着商品</h2>
+        <div class="d-flex flex-wrap justify-content-around">
+          <% @items.each do |item| %>
+            <div clas="item-group" style = "width: 25%" >
+              <% if customer_signed_in? %>
+                <%= link_to item_path(item.id) do %>
+                  <%= image_tag item.get_image(200,200),class:"mb-3 shadow", style:"padding: 0; height:350px; width: 200px" %>
+                <% end %>
+              <% else %>
+                <%= image_tag item.get_image(200,200),class:"mb-3 shadow", style:"padding: 0; height:350px; width: 200px" %>
               <% end %>
-            <% else %>
-              <%= image_tag item.get_image(200,200) %>
-            <% end %>
-            <%= item.name %><br>
-            ¥<%= (item.price).to_s(:delimited) %>
-          </div>
-        <% end %>
-      </div>
-      <div>
+              <%= item.name %><br>
+              ¥<%= (item.price).to_s(:delimited) %>
+            </div>
+          <% end %>
+        </div>
         <%= link_to "全ての商品を見る", items_path %>
       </div>
     </div>
   </div>
-</div>
