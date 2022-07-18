@@ -13,7 +13,12 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    redirect_to admin_order_path(@order)
+    if @order.status == 1
+      @order.order_details.update(making_status: 1)
+      redirect_to request.referer
+    else
+      redirect_to request.referer
+    end
   end
   
   private
