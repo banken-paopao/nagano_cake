@@ -7,7 +7,7 @@ class Admin::OrdersController < ApplicationController
   
   def history
     @order = Order.find(params[:id])
-    @order_details = @order.order_details.all
+    @orders = Order.where(customer_id: params[:id])
   end
 
   def update
