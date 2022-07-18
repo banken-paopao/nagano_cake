@@ -6,7 +6,7 @@
 #  introduction :text             not null
 #  is_active    :boolean          default(TRUE), not null
 #  name         :string           not null
-#  price        :integer          not null    税抜価格
+#  price        :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  genre_id     :integer          not null
