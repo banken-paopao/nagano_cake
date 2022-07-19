@@ -1,0 +1,34 @@
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+        <div class="mt-4">
+          <%= render 'public/items/genre',genres: @genres %>
+        </div>
+      </div>
+      <div class="col-10">
+        <div class="mt-4">
+          <h2 class="text-center">ジャンル検索結果 "<%= @genre_name %>"</h2>
+          <h5 class=" text-center mb-5">検索結果は<%= @items.count %>件です。</h5>
+          <div class="d-flex flex-wrap justify-content-around">
+            <% @items.each do |item| %>
+              <% if customer_signed_in? %>
+                <%= link_to item_path(item.id), class:"card mb-3 shadow", style:"padding: 0; height:300px; width: 200px" do %>
+                  <%= image_tag item.get_image(200,200), class:"card-img-top",  style:"height:150px; width:auto; object-fit: cover" %>
+                  <div class="card-body", style="color:black; background-color:#F5F2EC">
+                    <h5 class="card-title"><%= item.name %></h5>
+                    <p class="card-text">¥<%= item.price.to_s(:delimited) %></p>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= image_tag item.get_image(200,200), class:"card-img-top",  style:"height:150px; width:auto; object-fit: cover" %>
+                <div class="card-body", style="color:black; background-color:#F5F2EC">
+                  <h5 class="card-title"><%= item.name %></h5>
+                  <p class="card-text">¥<%= item.price.to_s(:delimited) %></p>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

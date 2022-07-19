@@ -33,4 +33,8 @@ class Item < ApplicationRecord
   def sale_status
     is_active ? "販売中" : "販売停止中"
   end
+
+  def self.genre_search(search_genre)
+    Item.where(genre_id: search_genre)
+  end
 end
