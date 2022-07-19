@@ -208,3 +208,68 @@ input#customer_address{
   }
 }
 
+.main-about1 {
+  width: 100%;
+  height: 500px;
+  background-image: url(/assets/cake14.jpg);
+  opacity: 0.5;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-about-content1 {
+  width: 40%;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding-top: 200px;
+}
+
+
+.main-about-text1 {
+  color: #fff;
+}
+
+.main-about2 {
+  width: 100%;
+  height: 500px;
+  background-image: url(/assets/cake16.jpg);
+  opacity: 0.5;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-about-content2 {
+  width: 40%;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding-top: 200px;
+}
+
+
+.main-about-text2 {
+  color: #fff;
+}
+
+.main-about-name {
+  margin-top: 30px;
+  color: #fff;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 5%;
+  font-size: 18pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 12px 12px;
+  background: #ffae8a;
+  color: #ffffff;
+  line-height: 1em;
+}
+.button:hover {
+  box-shadow: none;
+  color: #000066;
+  background: #ffffff;
+}
