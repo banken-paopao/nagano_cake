@@ -7,7 +7,7 @@
       </div>
       <div class="col-10">
         <div class="mt-4">
-          <% if @search_result.count < 0 %>
+          <% if @search_result.count > 0 %>
             <h5 class=" text-center mb-5">"<%= @search_name %>"の検索結果 1-<%=  @search_result.count %>件</h5>
           <% else %>
             <h5 class=" text-center mb-5">"<%= @search_name %>"の検索に一致する商品は見つかりませんでした</h5>
