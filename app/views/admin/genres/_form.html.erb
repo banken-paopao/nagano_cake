@@ -3,7 +3,7 @@
     <%= form_with model: [:admin, @genre], local: false do |f| %>
     <div class="form-group d-flex">
      <%= f.label :name, "ジャンル名" %>
-     <%= f.text_field :name, placeholder: "ジャンル名", class: "form-control col-lg-3 mx-2" %>
+     <%= f.text_field :name, placeholder: "ジャンル名", class: "form-control col-lg-3 mx-2 text_field" %>
      <%= f.submit text, class: "btn btn-outline-secondary" %>
     </div>
     <% end %>
