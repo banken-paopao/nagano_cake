@@ -11,6 +11,13 @@
           <% end %>
         <% end %>
       </div>
+      <% if customer_signed_in? %>
+        <div class="collapse navbar-collapse justify-content-center">
+          <div class="navbar-nav text-secondary font-weight-bold">
+            ようこそ、<%= current_customer.first_name %>さん！
+          </div>
+        </div>
+      <% end %>
       <ul class="navbar-nav ml-auto">
         <% if customer_signed_in? %>
           <li>
