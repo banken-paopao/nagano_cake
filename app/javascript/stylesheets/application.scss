@@ -5,6 +5,10 @@ body {
   padding-top: 5.5rem;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 main {
   min-height: 100vh;
 }
@@ -38,6 +42,28 @@ ul, li {
     height: 44px;
     font-size: 24px;
     color: #fff;
+  }
+}
+
+.genre-tag {
+  display: inline-block;
+  margin: 0 .1em .6em 0;
+  padding: 0.375rem 0.75rem;
+  color: #EC6D4E;
+  border: 1px solid #EC6D4E;
+  transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out;
+  &:hover {
+    background-color: #ffae8a;
+    color: #fff;
+  }
+  &:active {
+    background-color: #ffae8a;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(236, 109, 78, .5);
   }
 }
 
@@ -203,7 +229,6 @@ input#customer_address{
   line-height: 1em;
   &:hover {
     box-shadow: none;
-    text-decoration: none;
     color: #000066;
     background: #ffffff;
   }
