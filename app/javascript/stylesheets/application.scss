@@ -145,7 +145,7 @@ input#customer_address{
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #333;
+    background-color: #fff;
     position: absolute;
     transition: transform 0.5s, opacity 0.5s;
   }
@@ -164,12 +164,14 @@ input#customer_address{
   /* クリックされた後のハンバーガーのマーク */
   .nav_toggle.show i:nth-child(1) {
     transform: translateY(10px) rotate(-45deg);
+    background-color: #333;
   }
   .nav_toggle.show i:nth-child(2) {
     opacity: 0;
   }
   .nav_toggle.show i:nth-child(3) {
     transform: translateY(-12px) rotate(45deg);
+    background-color: #333;
   }
 
   /* クリックで表示されるメニュー：クリックされる前 */
