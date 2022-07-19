@@ -34,7 +34,11 @@ class Item < ApplicationRecord
     is_active ? "販売中" : "販売停止中"
   end
 
-  def self.genre_search(search_genre)
-    Item.where(genre_id: search_genre)
+  def self.search_for(model, search_value)
+    if model == "item"
+      Item.where("name LIKE ?", "%#{search_value}%")
+    else
+      Item.where(genre_id: search_value)
+    end
   end
 end

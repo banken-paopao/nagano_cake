@@ -30,6 +30,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show] do
       collection do
         get "genre_search" => "items#genre_search"
+        get '/item_search' => 'items#item_search'
       end
     end
 
