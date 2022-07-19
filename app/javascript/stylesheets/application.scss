@@ -108,6 +108,19 @@ input#customer_address{
   width: 370px;
 }
 
+.admin-sign-in {
+    text-decoration: none;
+    cursor: text;
+    &:hover {
+      text-decoration: none;
+      cursor: text;
+    }
+    &:active {
+      text-decoration: none;
+      cursor: text;
+    }
+  }
+
 /* PCでは非表示にしておく */
 .nav_toggle,
 .nav {
@@ -192,16 +205,4 @@ input#customer_address{
     visibility: visible;
   }
 }
-.admin-sign-in {
-    text-decoration: none;
-    cursor: text;
-    &:hover {
-      text-decoration: none;
-      cursor: text;
-    }
-    &:active {
-      text-decoration: none;
-      cursor: text;
-    }
-  }
 
