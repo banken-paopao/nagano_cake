@@ -1,26 +1,30 @@
 <div class="container">
-    <div class="row">
-      <div class="col-3">
-        <div class="mt-4">
-          <%= render 'public/items/genre',genres: @genres %>
-        </div>
-      </div>
-      <div class="col-4">
-        <%= image_tag @item.get_image(400,400) %>
-      </div>
-      <div class="col-5">
-        <div class="md-3"><%= @item.name %></div>
-        <div class="md-3"><%= @item.introduction %></div>
-        <div class="md-3"><%= @item.with_tax_price %></div>
-        <div class="d-flex flex-row-reverse bd-highlight">
+  <div class="row">
+    <div class="col-3 mt-3">
+      <%= render 'public/items/genre', genres: @genres %>
+    </div>
+    <div class="col-3 mt-3">
+      <%= image_tag @item.get_image(350,350) %>
+    </div>
+    <div class="col-6 mt-3 text-center">
+     <h3 class="mt-3"><%= @item.name %></h3>
+      <p><%= @item.introduction %></p>
+      <p>¥<%= @item.price %>円</p>
+      <p><%= link_to @item.genre.name, genre_search_items_path(genre_id: @item.genre.id), class: "btn btn-info" %></p>
+      <div class="mt-2">
+        <% if @item.is_active == true %>
+          <div class="text-success mt-1">販売中</div>
           <%= form_with model: @cart_item, url: cart_items_path do |f| %>
             <%= f.hidden_field :item_id, value: @item.id %>
-            <p class="p-2 bd-highlight">
-              <%= f.select :amount, *[1..10] %>
-              <%= f.submit "カートに入れる", class: "btn btn-success" %>
-            </p>
+            <p class="p-2 bd-highlight"><%= f.select :amount, *[1..10] %>
+            <%= f.submit "カートに入れる", class: "btn btn-success" %></p>
           <% end %>
-        </div>
+        <% else %>
+          <div class="text-success mt-1">販売停止中</div>
+          <p class="mt-2">申し訳ありません<br>
+          好評につき売り切れました。</p>
+        <% end %>
       </div>
     </div>
   </div>
+</div>

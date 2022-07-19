@@ -1,24 +1,31 @@
   <div class="container">
     <div class="row">
-      <div class="col-3">
+      <div class="col-2">
         <div class="mt-4">
-          <%= render 'public/items/genre',genres: @genres %>
+          <%= render 'public/items/genre', genres: @genres %>
         </div>
       </div>
-      <div class="col-9" style = "width: 100%">
-        <% @items.each do |item| %>
-          <div clas="item-group" style = "width: 25%" >
+      <div class="col-10 mt-4">
+        <h2 class="bg-light text-center">新着商品</h2>
+        <div class="d-flex flex-wrap justify-content-around">
+          <% @items.each do |item| %>
             <% if customer_signed_in? %>
-              <%= link_to item_path(item.id) do %>
-                <%= image_tag item.get_image(200,200) %>
+              <%= link_to item_path(item.id), class:"card mb-3 shadow", style:"padding: 0; height:300px; width: 200px" do %>
+                <%= image_tag item.get_image(200,200), class:"card-img-top",  style:"height:150px; width:auto; object-fit: cover" %>
+                <div class="card-body", style="color:black; background-color:#ffe2d5">
+                  <h5 class="card-title"><%= item.name %></h5>
+                  <p class="card-text">¥<%= item.price.to_s(:delimited) %></p>
+                </div>
               <% end %>
             <% else %>
-              <%= image_tag item.get_image(200,200) %>
+              <%= image_tag item.get_image(200,200), class:"card-img-top",  style:"height:150px; width:auto; object-fit: cover" %>
+              <div class="card-body", style="color:black; background-color:#ffe2d5">
+                <h5 class="card-title"><%= item.name %></h5>
+                <p class="card-text">¥<%= item.price.to_s(:delimited) %></p>
+              </div>
             <% end %>
-            <%= item.name %><br>
-            ¥<%= (item.price).to_s(:delimited) %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
