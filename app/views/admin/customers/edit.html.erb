@@ -1,6 +1,8 @@
-<div class="container">
-  <div class="row mt-5">
-    <h2><%= @customer.full_name %>さんの会員情報編集</h2>
+<div class="container py-5 text-secondary">
+  <div class="row">
+    <div class="col-lg-4">
+      <h5 class="border-bottom"><%= @customer.full_name %>さんの会員情報編集</h5>
+    </div>
   </div>
   <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
     <table class="col-md-10 mt-3" cellpadding="10">

@@ -24,4 +24,8 @@ class Order < ApplicationRecord
   def address_display
     '〒' + postal_code.to_s + ' ' + address
   end
+  
+  def total_amount
+    self.order_details.inject(0){|total, order_detail| total + order_detail.amount}
+  end
 end

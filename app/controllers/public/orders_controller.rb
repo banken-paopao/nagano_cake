@@ -1,6 +1,10 @@
 class Public::OrdersController < ApplicationController
   def new
-    @order = Order.new
+    if current_customer.cart_items.blank?
+      redirect_to root_path
+    else
+      @order = Order.new
+    end
   end
 
   def confirm

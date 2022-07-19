@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-10 align-self-center">
+    <div class="col-lg-8 align-self-center">
       <table class="table text-secondary table-hover">
         <thead class="table-secondary">
           <tr>
@@ -15,11 +15,11 @@
           </tr>
         </thead>
         <tbody>
-          <% @order_details.each do |order_detail| %>
+          <% @orders.each do |order| %>
             <tr>
-              <td><%= link_to order_detail.created_at.strftime('%Y/%m/%d %H:%M'), admin_order_path(order_detail.id) %></td>
-              <td><%= order_detail.amount %></td>
-              <td><%= order_detail.order.status_i18n %></td>
+              <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M'), admin_order_path(order.id) %></td>
+              <td><%= order.total_amount %></td>
+              <td><%= order.status_i18n %></td>
             </tr>
           <% end %>
         </tbody>
