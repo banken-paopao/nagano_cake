@@ -16,17 +16,8 @@
             <th colspan="2"></th>
           </tr>
         </thead>
-        <tbody>
-          <% @genres.each do |genre| %>
-          <tr>
-            <td>
-              <%= genre.name %>
-            </td>
-            <td>
-              <%= link_to "編集する", edit_admin_genre_path(genre), class: "btn btn-outline-secondary" %>
-            </td>
-          </tr>
-          <% end %>
+        <tbody id="genre_new">
+          <%= render "index", genres: @genres %>
         </tbody>
       </table>
     </div>
