@@ -2,15 +2,18 @@
     <div class="row">
       <div class="col-2">
         <div class="mt-4">
-          <%= render 'public/items/genre',genres: @genres %>
+          <%= render 'public/items/genre', genres: @genres %>
         </div>
       </div>
       <div class="col-10">
         <div class="mt-4">
-          <h2 class="text-center">ジャンル検索結果 "<%= @genre_name %>"</h2>
-          <h5 class=" text-center mb-5">検索結果は<%= @items.count %>件です。</h5>
+          <% if @search_result.count < 0 %>
+            <h5 class=" text-center mb-5">"<%= @search_name %>"の検索結果 1-<%=  @search_result.count %>件</h5>
+          <% else %>
+            <h5 class=" text-center mb-5">"<%= @search_name %>"の検索に一致する商品は見つかりませんでした</h5>
+          <% end %>
           <div class="d-flex flex-wrap justify-content-around">
-            <% @items.each do |item| %>
+            <% @search_result.each do |item| %>
               <% if customer_signed_in? %>
                 <%= link_to item_path(item.id), class:"card mb-3 shadow", style:"padding: 0; height:300px; width: 200px" do %>
                   <%= image_tag item.get_image(200,200), class:"card-img-top",  style:"height:150px; width:auto; object-fit: cover" %>
