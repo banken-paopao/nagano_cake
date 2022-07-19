@@ -21,5 +21,10 @@
       <%= yield %>
     </main>
     <%= render "layouts/footer" %>
+    <script>
+      $(".nav_toggle").on("click", function () {
+        $(".nav_toggle, .nav").toggleClass("show");
+      });
+    </script>
   </body>
 </html>

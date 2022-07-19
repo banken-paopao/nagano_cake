@@ -1,67 +1,121 @@
 <header class="fixed-top">
   <nav class="navbar bg-light navbar-expand-lg border-bottom border-secondary shadow-sm">
-      <div class="navbar-brand">
-        <% if admin_signed_in? %>
-          <%= link_to admin_path do %>
-            <img src="/assets/logo.png" alt="ロゴ" width="180" height="60">
-          <% end %>
-        <% else %>
-          <%= link_to root_path do %>
-            <img src="/assets/logo.png" alt="ロゴ" width="180" height="60">
-          <% end %>
+    <div class="navbar-brand">
+      <% if admin_signed_in? %>
+        <%= link_to admin_path do %>
+          <img src="/assets/logo.png" alt="ロゴ" width="180" height="60">
         <% end %>
-      </div>
-      <% if customer_signed_in? %>
-        <div class="collapse navbar-collapse justify-content-center">
-          <div class="navbar-nav text-secondary font-weight-bold">
-            ようこそ、<%= current_customer.first_name %>さん！
-          </div>
-        </div>
+      <% else %>
+        <%= link_to root_path do %>
+          <img src="/assets/logo.png" alt="ロゴ" width="180" height="60">
+        <% end %>
       <% end %>
-      <ul class="navbar-nav ml-auto">
+    </div>
+    <% if customer_signed_in? %>
+      <div class="collapse navbar-collapse justify-content-center">
+        <div class="navbar-nav text-secondary font-weight-bold">
+          ようこそ、<%= current_customer.first_name %>さん！
+        </div>
+      </div>
+    <% end %>
+    <ul class="navbar-nav ml-auto">
+      <% if customer_signed_in? %>
+        <li>
+          <%= link_to "マイページ", my_page_customers_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "カート", cart_items_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
+        </li>
+      <% elsif admin_signed_in? %>
+        <li>
+          <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "注文履歴一覧", admin_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "About", about_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary" %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-secondary" %>
+        </li>
+      <% end %>
+    </ul>
+    <!-- クリックする３本線の部分 -->
+    <span class="nav_toggle">
+      <i></i>
+      <i></i>
+      <i></i>
+    </span>
+    <!-- クリックで表示されるメニュー -->
+    <nav class="nav">
+      <ul class="nav_menu_ul">
         <% if customer_signed_in? %>
-          <li>
-            <%= link_to "マイページ", my_page_customers_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "マイページ", my_page_customers_path %>
           </li>
-          <li>
-            <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "商品一覧", items_path %>
           </li>
-          <li>
-            <%= link_to "カート", cart_items_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "カート", cart_items_path %>
           </li>
-          <li>
-            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-secondary" %>
-          </li>
+          <li class="nav_menu_li">
+            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+          </li>  
         <% elsif admin_signed_in? %>
-          <li>
-            <%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "商品一覧", admin_items_path %>
           </li>
-          <li>
-            <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "会員一覧", admin_customers_path %>
           </li>
-          <li>
-            <%= link_to "注文履歴一覧", admin_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "注文履歴一覧", admin_path %>
           </li>
-          <li>
-            <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "ジャンル一覧", admin_genres_path %>
           </li>
-          <li>
-            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
           </li>
         <% else %>
-          <li>
-            <%= link_to "About", about_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "About", about_path %>
           </li>
-          <li>
-            <%= link_to "商品一覧", items_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "商品一覧", items_path %>
           </li>
-          <li>
-            <%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "新規登録", new_customer_registration_path %>
           </li>
-          <li>
-            <%= link_to "ログイン", new_customer_session_path, class: "btn btn-outline-secondary" %>
+          <li class="nav_menu_li">
+            <%= link_to "ログイン", new_customer_session_path %>
           </li>
         <% end %>
       </ul>
+    </nav>
   </nav>
 </header>
