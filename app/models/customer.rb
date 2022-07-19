@@ -35,11 +35,11 @@ class Customer < ApplicationRecord
   has_many :addresses,  dependent: :destroy
 
   def full_name
-    first_name + "　" + last_name
+    last_name + "　" + first_name
   end
 
   def full_name_kana
-    first_name_kana + "　" + last_name_kana
+    last_name_kana + "　" + first_name_kana
   end
 
   def address_display
