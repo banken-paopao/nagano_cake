@@ -9,6 +9,14 @@ main {
   min-height: 100vh;
 }
 
+header, .footer-bottom {
+  background-color: #ffae8a;
+}
+
+.footer-bottom {
+  height: 60px;
+}
+
 .navbar li{
   margin: 0 10px;
 }
@@ -18,56 +26,52 @@ ul, li {
 }
 
 .social-link {
-  background-color: #e89374;
+  background-color: #ffae8a;
   border-radius: 50%;
   width: 44px;
   height: 44px;
+  & a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    color: #fff;
+  }
 }
 
-.social-link a{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  font-size: 24px;
-  color: #fff;
-}
-
-.admin-add-item {
-  display: inline-block;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
-}
-
-.admin-add-item:hover {
-  position: relative;
-  bottom: 1px;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
-}
-
-.admin-add-item:active {
-  position: relative;
-  top: 3px;
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
-  border-bottom: 1px solid #dcdcdc;
-}
-
-.admin-item-btn {
-  width: 48px;
-  height: 48px;
-  font-size: 32px;
-  color: #6c757d;
-}
-
-.admin-item-btn:hover {
-  color: #6c757d;
-}
-
-.admin-item-btn:active {
-  color: #6c757d;
+.admin-add {
+  &-item {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.5);
+    &:hover {
+      position: relative;
+      bottom: 1px;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
+    }
+    &:active {
+      position: relative;
+      top: 3px;
+      box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+      border-bottom: 1px solid #dcdcdc;
+    }
+    &-btn {
+      width: 48px;
+      height: 48px;
+      font-size: 32px;
+      color: #ffae8a;
+      &:hover {
+        color: #ffae8a;
+      }
+      &:active {
+        color: #ffae8a;
+      }
+    }
+  }
 }
 
 .main-top {
@@ -91,12 +95,28 @@ ul, li {
   text-align: center;
 }
 
-footer .admin-sign-in {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+header, footer {
+  border: 1px solid #d3d3d3;
+  &.admin-sign-in {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 input#customer_address{
   width: 370px;
 }
+
+.admin-sign-in {
+    text-decoration: none;
+    cursor: text;
+    &:hover {
+      text-decoration: none;
+      cursor: text;
+    }
+    &:active {
+      text-decoration: none;
+      cursor: text;
+    }
+  }

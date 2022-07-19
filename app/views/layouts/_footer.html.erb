@@ -1,4 +1,4 @@
-<footer class="bg-white text-center text-lg-start border-top border-secondary">
+<footer class="text-center text-lg-start">
   <div class="container">
     <div class="row">
       <div class="mx-auto text-center mt-1">
@@ -18,9 +18,19 @@
       </div>
     </div>
   </div>
-  <div class="bg-secondary d-flex justify-content-end pt-3" style="height: 60px; opacity: 0.4;">
-    <div class="col-lg-3 d-inline-block text-end p-0">
-      <%= link_to "　", admin_session_path, class: "admin-sign-in" %>
+  <div class="d-flex justify-content-start pt-3 footer-bottom">
+    <div class="col-lg-7">
+      <ul class="list-inline">
+        <li class="list-inline-item"><%= link_to "はじめての方へ", root_path, class: "text-white" %></li><span class="text-white">&nbsp;|&nbsp;</span>
+        <li class="list-inline-item"><%= link_to "よくあるご質問", root_path, class: "text-white" %></li><span class="text-white">&nbsp;|&nbsp;</span>
+        <li class="list-inline-item"><%= link_to "お問い合わせ", root_path, class: "text-white" %></li><span class="text-white">&nbsp;|&nbsp;</span>
+        <li class="list-inline-item"><%= link_to "ご利用ガイド", root_path, class: "text-white" %></li><span class="text-white">&nbsp;|&nbsp;</span>
+        <li class="list-inline-item"><%= link_to "プライバシーポリシー", root_path, class: "text-white" %></li><span class="text-white">&nbsp;|&nbsp;</span>
+        <li class="list-inline-item"><%= link_to "特定商取引法", root_path, class: "text-white" %></li>
+      </ul>
+    </div>
+    <div class="col-lg-3 offset-lg-2 d-inline-block p-0">
+      <%= link_to "©", admin_session_path, class: "admin-sign-in text-white" %><span class="text-white">2022 nagano cake</span>
     </div>
   </div>
 </footer>
