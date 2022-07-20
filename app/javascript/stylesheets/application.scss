@@ -11,6 +11,7 @@ a:hover {
 
 main {
   min-height: 100vh;
+  background: #fffffc;
 }
 
 header, .footer-bottom {
@@ -27,6 +28,16 @@ header, .footer-bottom {
 
 ul, li {
   list-style: none;
+}
+
+.error-messages {
+  border: 2px solid red;
+  background-color: #ffcccc;
+  >ul {
+    >li {
+      list-style: square;
+    }
+  }
 }
 
 .social-link {
