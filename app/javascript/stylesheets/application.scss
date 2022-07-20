@@ -34,8 +34,8 @@ ul, li {
   border: 2px solid red;
   background-color: #ffcccc;
   >ul {
-    li {
-    list-style: square;
+    >li {
+      list-style: square;
     }
   }
 }
