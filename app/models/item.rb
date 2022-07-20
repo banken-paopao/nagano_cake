@@ -18,6 +18,14 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
+  with_options presence: true do
+    validates :name, length: {maximum: 50}
+    validates :introduction, length: {maximum: 400}
+    validates :price, numericality: { only_integer: true }
+    validates :genre_id
+  end
+  validates :is_active, inclusion: { in: [true, false] }
+
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

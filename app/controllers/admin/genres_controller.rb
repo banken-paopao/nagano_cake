@@ -5,8 +5,10 @@ class Admin::GenresController < ApplicationController
   end
 
   def create
-    genre = Genre.new(genre_params)
-    genre.save
+    @genre = Genre.new(genre_params)
+    if @genre.save
+      flash[:notice] = "ジャンルの追加に成功しました"
+    end
     @genre = Genre.new
     @genres = Genre.all
   end
