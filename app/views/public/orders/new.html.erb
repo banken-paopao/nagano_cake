@@ -31,13 +31,15 @@
           </div>
 
           <div class="form_group">
-            <%= f.radio_button :select_address, 1 %>
-            <%= f.label :select_address_1, "登録済住所から選択" %>
             <% if current_customer.addresses.size == 0 %>
+            <%= f.radio_button :select_address, 1, disabled: true %>
+            <%= f.label :select_address_1, "登録済住所から選択" %>
               <div class="ml-4">
                 <p>登録済の住所がありません</p>
               </div>
             <% else %>
+            <%= f.radio_button :select_address, 1 %>
+            <%= f.label :select_address_1, "登録済住所から選択" %>
               <div class="ml-4 mb-3" >
                 <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses,:id, :address_display) %>
               </div>

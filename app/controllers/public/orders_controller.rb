@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
   def new
     if current_customer.cart_items.blank?
       redirect_to root_path
