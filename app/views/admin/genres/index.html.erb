@@ -4,7 +4,9 @@
       <h5 class="border-bottom">ジャンル一覧・追加</h5>
     </div>
   </div>
-  <div id="genre_error"></div>
+  <div id="genre_error">
+    <%= render "layouts/error", obj: @genre %>
+  </div>
   <%= render "form", text: "新規登録", genre: @genre %>
   <div class="row">
     <div class="col-lg-6">
@@ -21,8 +23,8 @@
           <%= render "index", genres: @genres %>
         </tbody>
       </table>
-      <div class="row justify-content-center">
-        <%= paginate @genres %>
+      <div class="row justify-content-center genre_page">
+        <%= render "genre_page", genres: @genres %>
       </div>
     </div>
   </div>
