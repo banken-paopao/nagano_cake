@@ -79,4 +79,7 @@ Rails.application.configure do
   config.hosts << "62bdc0673d4044dda7f0fac4f1785fde.vfs.cloud9.ap-northeast-1.amazonaws.com"
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
   config.active_job.queue_adapter = :inline
+  config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+    html_tag
+  end
 end
