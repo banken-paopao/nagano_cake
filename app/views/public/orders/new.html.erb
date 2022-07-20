@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10 mt-4 mb-3 mx-5"><h4 class="my-auto">注文情報入力</h4></div>
+    <%= render "layouts/error", obj: @order %>
 
     <div class="col-11">
       <%= form_with model: @order, url: confirm_orders_path, method: :post do |f| %>
