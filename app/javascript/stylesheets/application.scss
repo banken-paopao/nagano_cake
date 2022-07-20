@@ -14,6 +14,16 @@ main {
   background: #fffffc;
 }
 
+header, footer {
+  min-width: 960px;
+  border: 1px solid #d3d3d3;
+  &.admin-sign-in {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
 header, .footer-bottom {
   background-color: #ffae8a;
 }
@@ -133,15 +143,6 @@ ul, li {
   top: 25%;
   left: 20%;
   text-align: center;
-}
-
-header, footer {
-  border: 1px solid #d3d3d3;
-  &.admin-sign-in {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
 }
 
 input#customer_address{
@@ -268,19 +269,19 @@ input#customer_address{
 }
 
 /*ページネーション自体のデザイン*/
-.pagination>li>a {          
+.pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
 }
 
 /* 表示しているページ番号のデザイン */
-.pagination>.active>a {     
+.pagination>.active>a {
   background: #93c9ff;     /*背景の色を変える*/
   border-radius: 15px;     /*角を丸くする*/
 }
 
 /*ホバー時のデザイン*/
-.pagination>li>a:hover {        
+.pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
 }
 
