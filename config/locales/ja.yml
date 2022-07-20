@@ -45,8 +45,6 @@ ja:
         genre: "ジャンル名"
       genre:
         name: "ジャンル名"
-
-ja:
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>
