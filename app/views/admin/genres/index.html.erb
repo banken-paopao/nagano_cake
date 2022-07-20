@@ -21,6 +21,9 @@
           <%= render "index", genres: @genres %>
         </tbody>
       </table>
+      <div class="row justify-content-center">
+        <%= paginate @genres %>
+      </div>
     </div>
   </div>
 </div>
