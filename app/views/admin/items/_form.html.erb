@@ -20,7 +20,7 @@
       </div>
       <div class="form-group">
         <%= f.label :price %>
-        <%= f.number_field :price, placeholder: "値段を入力してください", class: "form-control" %>
+        <%= f.number_field :price, placeholder: "値段を入力してください", class: "form-control" %>円
       </div>
       <div class="form-group">
         <%= f.label :is_active, "販売ステータス" %>
@@ -32,8 +32,13 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.submit text, class: "btn btn-outline-secondary btn-block" %>
+        <%= f.submit text, class: "btn btn-block btn-template" %>
       </div>
       <% end %>
     </div>
   </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script>
+  bsCustomFileInput.init();
+</script>
