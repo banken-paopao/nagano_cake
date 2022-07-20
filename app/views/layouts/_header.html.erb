@@ -11,21 +11,20 @@
         <% end %>
       <% end %>
     </div>
-      <div class="collapse navbar-collapse justify-content-center">
-    <% if customer_signed_in? %>
-        <div class="navbar-nav text-light font-weight-bold">
+    <div class="collapse navbar-collapse justify-content-center">
+      <% if customer_signed_in? %>
+        <div class="navbar-nav text-light font-weight-bold d-inline-block">
           ようこそ、<%= current_customer.last_name %>さん！
         </div>
-    <% elsif admin_signed_in? %>
-        <div class="navbar-nav text-light font-weight-bold">
+      <% elsif admin_signed_in? %>
+        <div class="navbar-nav text-light font-weight-bold d-inline-block d-none d-sm-block">
           こちらは管理画面です。
         </div>
-
-    <% end %>
-      </div>
-    <span class="ml-auto col-4">
-      <%= render "public/items/form" %>
-    </span>
+      <% end %>
+    </div>
+      <span class="ml-auto col-4 d-none d-sm-block">
+        <%= render "public/items/form" %>
+      </span>
     <ul class="navbar-nav ml-auto">
       <% if customer_signed_in? %>
         <li>

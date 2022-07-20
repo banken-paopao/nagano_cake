@@ -1,8 +1,3 @@
-  <% genre.errors.full_messages.each do |message| %>
-    <li>
-      <%= message %>
-    </li>
-  <% end %>
 <div class="row my-5">
   <div class="col-lg-10">
     <%= form_with model: [:admin, genre], local: false do |f| %>
