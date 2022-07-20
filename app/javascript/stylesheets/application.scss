@@ -372,3 +372,21 @@ input#customer_address{
     visibility: visible;
   }
 }
+
+#genre-table{
+  thead, tbody {
+    display: block;
+    text-align: center;
+  }
+  tbody {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 650px;
+  }
+  th,td {
+    border:none;
+  }  
+  a{
+    font-size: 15px;
+  }
+}

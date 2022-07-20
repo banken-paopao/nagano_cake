@@ -1,3 +1,4 @@
+<div id="genre-table">
   <table class="table">
     <thead>
       <tr>
@@ -8,9 +9,10 @@
       <% genres.each do |genre| %>
         <tr>
           <td>
-            <%= link_to genre.name, item_search_items_path(genre_id: genre.id, model: "genre"), class: "rounded-pill btn-template" %>
+            <%= link_to genre.name, item_search_items_path(genre_id: genre.id, model: "genre"), class: "rounded-pill btn-template",style: "width: 100%" %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
