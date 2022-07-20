@@ -34,6 +34,22 @@ class Customer < ApplicationRecord
   has_many :orders,     dependent: :destroy
   has_many :addresses,  dependent: :destroy
 
+  with_options presence: true do
+    validates :address
+    validates :first_name
+    validates :last_name
+    with_options format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。' } do
+      validates :first_name_kana
+      validates :last_name_kana
+    end
+    with_options numericality: { only_integer: true } do
+      validates :postal_code, length: {is: 7}
+      validates :telephone_number
+    end
+  end
+  validates :is_deleted, inclusion: { in: [true, false] }
+
+
   def full_name
     last_name + "　" + first_name
   end

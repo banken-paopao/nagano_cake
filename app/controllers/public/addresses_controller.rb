@@ -17,6 +17,7 @@ class Public::AddressesController < ApplicationController
       flash[:notice] = "住所登録に成功しました。"
       redirect_to request.referer
     else
+      @addresses = Address.all
       flash[:notice] = "住所登録に失敗しました。"
       render :index
     end

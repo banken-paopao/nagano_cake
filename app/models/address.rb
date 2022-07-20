@@ -13,6 +13,12 @@
 class Address < ApplicationRecord
   belongs_to :customer
 
+  with_options presence: true do
+    validates :address
+    validates :name
+    validates :postal_code, numericality: { only_integer: true }, length: {is: 7}
+  end
+
   def address_display
     '〒' + postal_code + ' ' + address + '　' + name
   end
