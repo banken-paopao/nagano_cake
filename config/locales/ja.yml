@@ -16,9 +16,6 @@ ja:
         wait: "製作待ち"
         now: "製作中"
         finish: "製作完了"
-
-
-ja:
   activerecord:
     models:
       customer: "会員"

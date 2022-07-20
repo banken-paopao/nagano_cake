@@ -1,4 +1,6 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
+  
   def index
     # 消費税込みの合計の値段の初期定義
     @all_with_tax_price = 0
