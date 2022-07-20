@@ -33,6 +33,10 @@ class Order < ApplicationRecord
   validates :status, inclusion: { in: Order.statuses.keys }
 
 
+  def default_sipping_cost
+    #配送料
+    return 800
+  end
 
   def address_display
     '〒' + postal_code.to_s + ' ' + address
