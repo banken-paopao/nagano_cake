@@ -22,7 +22,6 @@ class Item < ApplicationRecord
     validates :name, length: {maximum: 50}
     validates :introduction, length: {maximum: 400}
     validates :price, numericality: { only_integer: true }
-    validates :genre_id
   end
   validates :is_active, inclusion: { in: [true, false] }
 

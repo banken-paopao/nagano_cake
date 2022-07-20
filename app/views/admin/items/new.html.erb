@@ -4,5 +4,6 @@
       <h5 class="border-bottom">商品新規登録</h5>
     </div>
   </div>
+      <%= render "layouts/error", obj: @item %>
   <%= render "form", option: nil, select:  "--選択してください--", text: "新規登録" %>
 </div>

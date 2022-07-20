@@ -16,3 +16,35 @@ ja:
         wait: "製作待ち"
         now: "製作中"
         finish: "製作完了"
+
+
+ja:
+  activerecord:
+    models:
+      customer: "会員"
+      address: "住所"
+      admin: "管理者"
+      item: "商品"
+      cart_items:
+    attributes:
+      customer:
+        email: "メールアドレス"
+        password: "パスワード"
+        last_name: "名前(名)"
+        first_name: "名前(姓)"
+        last_name_kana: "名前フリガナ(メイ)"
+        first_name_kana: "名前フリガナ(セイ)"
+        postal_code: "郵便番号"
+        address: "住所"
+        telephone_number: "電話番号"
+      address:
+        name: "宛名"
+        address: "お届け先住所"
+        postal_code: "お届け先郵便番号"
+      item:
+        name: "商品名"
+        introduction: "説明文"
+        price: "値段"
+        genre: "ジャンル名"
+      genre:
+        name: "ジャンル名"

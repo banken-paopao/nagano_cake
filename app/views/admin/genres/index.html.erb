@@ -4,7 +4,8 @@
       <h5 class="border-bottom">ジャンル一覧・追加</h5>
     </div>
   </div>
-  <%= render "form", text: "新規登録" %>
+  <div id="genre_error"></div>
+  <%= render "form", text: "新規登録", genre: @genre %>
   <div class="row">
     <div class="col-lg-6">
       <table class="table text-secondary table-hover">
