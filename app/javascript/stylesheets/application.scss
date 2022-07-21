@@ -270,19 +270,25 @@ input#customer_address{
 
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+  border: none;
+  color: #ffae8a;
+}
+.page-item.active .page-link{
+  background-color: #ffae8a;
 }
 
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {
-  background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
+  background: #ffe2d5; 
+  border-radius: 15px; 
 }
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
-  border-radius: 15px;    /*角を丸くする*/
+  border-radius: 15px;
+  border-style: solid; border-color: #ffae8a63;
+  background-color: #fffffc;
+  color: #ffae8a;
 }
 
 
@@ -373,6 +379,7 @@ input#customer_address{
   }
 }
 
+// ジャンル検索欄
 #genre-table{
   tbody {
     display: block;
@@ -425,6 +432,7 @@ input#customer_address{
   }
 }
 
+// ジャンルボタン
 #genre-btn{
   a{
     font-size: 15px;
