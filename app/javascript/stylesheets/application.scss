@@ -330,8 +330,9 @@ input#customer_address{
 .pagination>li>a {
   border: none;
   color: #ffae8a;
-  background: #FAFAF2;
+  background: transparent;
 }
+
 .page-item.active .page-link{
   background-color: #ffae8a;
 }
@@ -339,15 +340,21 @@ input#customer_address{
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {
   background: #ffe2d5; 
-  border-radius: 15px; 
+  border-radius: 15px;
 }
 
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 15px;
   border-style: solid; border-color: #ffae8a63;
+  outline: none;
   background-color: #fffffc;
   color: #ffae8a;
+  outline: none;
+}
+
+.page-item.active .page-link{
+  border-color: transparent;
 }
 
 #genre-table{
@@ -369,11 +376,51 @@ input#customer_address{
   }
 }
 
+.mypage-title{
+  border-bottom: solid 3px #ffae8a;
+}
+
 
 /* PCでは非表示にしておく */
 .nav_toggle,
 .nav {
   display: none;
+}
+
+.mypage{
+  .title{
+    display: flex;
+    .edit-icon{
+      margin: 0;
+      padding: 0;
+    }
+    .fa-user-gear{
+      color: #eb6100;
+      width: 40px;
+      height: 40px;
+    }
+    .fa-user-gear:hover{
+      opacity: 0.5;
+    }
+  }
+  .table-color{
+    background: #ffe2d5b8;
+  }
+}
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #ffae8a;
+}
+
+a.btn--radius {
+   border-radius: 100vh;
 }
 
 /* スマホサイズで見た場合のスタイル */
@@ -544,7 +591,6 @@ input#customer_address{
 .item-image{
   height: 500px;
   width: 500px;
-   height: 650px;
   }
   th,td {
     border:none;

@@ -1,54 +1,53 @@
-<div class="container">
+<div class="container mypage">
   <div class="row">
-    <div class="col-10 mt-4 mb-3 mx-5"><h4 class="my-auto">マイページ</h4></div>
-
-<div class="col-lg-7 col-sm-12">
-    <table class="table table-borderless col-7 mb-0">
-      <tbody>
-        <tr>
-          <td class="align-middle" style="font-size: 20px"><strong>登録情報</strong></td>
-          <td><%= link_to '編集する', information_edit_customers_path, class: 'btn btn-success btn-block' %></td>
-        </tr>
-      </tbody>
-    </table>
-    <table class="table table-bordered">
-      <tbody>
-        <tr>
-          <td class="table-secondary" style="width:30%">氏名</td>
-          <td><%= current_customer.last_name %>　<%= current_customer.first_name %></td>
-        </tr>
-        <tr>
-          <td class="table-secondary">カナ</td>
-          <td><%= current_customer.last_name_kana %>　<%= current_customer.first_name_kana %></td>
-        </tr>
-        <tr>
-          <td class="table-secondary">郵便番号</td>
-          <td><%= current_customer.postal_code %></td>
-        </tr>
-        <tr>
-          <td class="table-secondary">住所</td>
-          <td><%= current_customer.address %></td>
-        </tr>
-        <tr>
-          <td class="table-secondary">電話番号</td>
-          <td><%= current_customer.telephone_number %></td>
-        </tr>
-        <tr>
-          <td class="table-secondary">メールアドレス</td>
-          <td><%= current_customer.email %></td>
-        </tr>
-      </tbody>
-    </table>
-    <table class="table table-borderless col-7">
-      <tbody>
-        <tr>
-          <td class="align-middle" style="font-size: 20px"><strong>配送先</strong></td>
-          <td><%= link_to '一覧を見る', addresses_path, class: 'btn btn-primary btn-block' %></td>
-        </tr>
-        <tr>
-          <td class="align-middle" style="font-size: 20px"><strong>注文履歴</strong></td>
-          <td><%= link_to '一覧を見る', orders_path, class: 'btn btn-primary btn-block' %></td>
-        </tr>
-      </tbody>
-    </table>
-</div>
+    <div class="col-10 mt-4 mb-3 mx-auto"><h4 class="my-auto mypage-title">マイページ</h4></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-7 col-sm-12 mx-auto">
+      <div class="title">
+        <div class="title-text pt-2" style="font-size: 20px"><strong>登録情報</strong></div>
+        <div class="edit-icon ml-auto">
+          <%= link_to information_edit_customers_path do %>
+            <i class="fa-solid fa-user-gear"></i>
+          <% end %>
+        </div>
+      </div>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td class="table-color" style="width:30%">氏名</td>
+            <td><%= current_customer.last_name %>　<%= current_customer.first_name %></td>
+          </tr>
+          <tr>
+            <td class="table-color">カナ</td>
+            <td><%= current_customer.last_name_kana %>　<%= current_customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <td class="table-color">郵便番号</td>
+            <td><%= current_customer.postal_code %></td>
+          </tr>
+          <tr>
+            <td class="table-color">住所</td>
+            <td><%= current_customer.address %></td>
+          </tr>
+          <tr>
+            <td class="table-color">電話番号</td>
+            <td><%= current_customer.telephone_number %></td>
+          </tr>
+          <tr>
+            <td class="table-color">メールアドレス</td>
+            <td><%= current_customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="menu d-flex">
+        <div class="menu-icon d-flex col-6 justify-content-center">
+          <%= link_to '配送先一覧', addresses_path, class: 'btn btn--orange btn--radius' %>
+        </div>
+        <div class="menu-icon d-flex col-6 justify-content-center">
+          <%= link_to '注文履歴一覧', orders_path, class: 'btn btn--orange btn--radius' %>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>  
