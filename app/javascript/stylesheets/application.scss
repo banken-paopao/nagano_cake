@@ -12,7 +12,7 @@ a:hover {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 80vh;
   background: #FAFAF2;
 }
 
@@ -71,7 +71,7 @@ ul, li {
     margin-top: -1px;
     z-index: 1;
   }
-  >p {
+  >span {
     line-height: 1;
     font-weight: 400;
     z-index: 2;
@@ -201,10 +201,6 @@ ul, li {
   top: 25%;
   left: 20%;
   text-align: center;
-}
-
-input#customer_address{
-  width: 370px;
 }
 
 .admin-sign-in {
@@ -338,8 +334,8 @@ input#customer_address{
 
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {
-  background: #ffe2d5; 
-  border-radius: 15px; 
+  background: #ffe2d5;
+  border-radius: 15px;
 }
 
 /*ホバー時のデザイン*/
@@ -457,6 +453,90 @@ input#customer_address{
   }
 }
 
+.input{
+  &-last-name {
+    width: 320px;
+    left: -42px;
+    @media screen and (max-width: 991px) {
+      width: 200px;
+    }
+    @media screen and (max-width: 768px) {
+      width: 100px;
+    }
+    &-kana {
+      width: 320px;
+      left: -52px;
+      @media screen and (max-width: 991px) {
+        width: 200px;
+      }
+      @media screen and (max-width: 768px) {
+        width: 100px;
+      }
+    }
+  }
+  &-first-name {
+    width: 320px;
+    right: -92px;
+    @media screen and (max-width: 1200px) {
+      right: -10px;
+    }
+    @media screen and (max-width: 991px) {
+      width: 200px;
+    }
+    @media screen and (max-width: 768px) {
+      width: 100px;
+      right: -16px;
+    }
+    &-kana {
+      width: 320px;
+      right: -80px;
+      @media screen and (max-width: 1200px) {
+        right: 0px;
+      }
+      @media screen and (max-width: 991px) {
+        width: 200px;
+      }
+      @media screen and (max-width: 768px) {
+        width: 100px;
+        right: -6px;
+      }
+    }
+  }
+  &-text-area {
+    width: 320px;
+    @media screen and (max-width: 768px) {
+      width: 200px;
+    }
+  }
+  &-address-area {
+    width: 770px;
+    @media screen and (max-width: 1200px) {
+      width: 690px;
+    }
+    @media screen and (max-width: 991px) {
+      width: 440px;
+    }
+    @media screen and (max-width: 991px) {
+      width: 440px;
+    }
+    @media screen and (max-width: 768px) {
+      width: 260px;
+    }
+  }
+    &-button-area {
+    width: 800px;
+    @media screen and (max-width: 1200px) {
+      width: 690px;
+    }
+    @media screen and (max-width: 991px) {
+      width: 440px;
+    }
+    @media screen and (max-width: 768px) {
+      width: 200px;
+    }
+  }
+}
+
 // ジャンル検索欄
 #genre-table{
   tbody {
@@ -487,16 +567,22 @@ input#customer_address{
       text-decoration: none;
       padding: 0.5rem;
       background: #f7f7f7;
+      border-top: solid 1px #ffae8a;
+      border-right: solid 1px #ffae8a;
+      border-bottom: solid 1px #ffae8a;
       border-left: solid 6px #ffae8a;
       color: #ffae8a;
       font-weight: bold;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
   }
-  
+
   .button.tag:active {
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.11);
       transform: translateY(2px);
-  } 
+  }
+  .button.tag:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  }
   .button.light-shadow {
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.14);
   }
@@ -505,7 +591,13 @@ input#customer_address{
       transform: translateY(1px);
   }
   a:hover{
-    opacity: 0.6;
+    position: relative;
+    top: -3px;
+    transition: top 2s;
+  }
+  a:active {
+    top: 0;
+    transition: top 0.2s;
   }
 }
 
@@ -519,16 +611,22 @@ input#customer_address{
       text-decoration: none;
       padding: 0.5rem;
       background: #f7f7f7;
+      border-top: solid 1px #ffae8a;
+      border-right: solid 1px #ffae8a;
+      border-bottom: solid 1px #ffae8a;
       border-left: solid 6px #ffae8a;
       color: #ffae8a;
       font-weight: bold;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
   }
-  
+
   .button.tag:active {
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.11);
       transform: translateY(2px);
-  } 
+  }
+  .button.tag:hover {
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  }
   .button.light-shadow {
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.14);
   }
@@ -537,7 +635,13 @@ input#customer_address{
       transform: translateY(1px);
   }
   a:hover{
-    opacity: 0.6;
+    position: relative;
+    top: -3px;
+    transition: top 2s;
+  }
+  a:active {
+    top: 0;
+    transition: top 0.2s;
   }
 }
 
@@ -548,7 +652,7 @@ input#customer_address{
   }
   th,td {
     border:none;
-  }  
+  }
   a{
     font-size: 15px;
   }
