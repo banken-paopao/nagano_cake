@@ -17,7 +17,6 @@ main {
 }
 
 header, footer {
-  min-width: 960px;
   border: 1px solid #d3d3d3;
   &.admin-sign-in {
     position: absolute;
@@ -459,7 +458,7 @@ ul, li {
     color: #fff;
     background: #ffae8a;
   }
-  
+
   a.btn--radius {
      border-radius: 100vh;
   }
