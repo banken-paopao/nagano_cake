@@ -22,7 +22,7 @@
         <% end %>
       </div>
       <div class="my-5">
-        <h2 class="bg-light text-center">新着商品</h2>
+        <h2 class="title title-text text-center">新着商品</h2>
         <div class="d-flex flex-wrap justify-content-around">
           <% @items.each do |item| %>
             <%= link_to item_path(item.id), class:"card mb-3 item-card", style:"padding: 0;" do %>
@@ -33,7 +33,7 @@
               </div>
             <% end %>
           <% end %>
-            <%= link_to "商品一覧",items_path, class: "btn btn-template-index light-shadow py-3 text-secondary",style: "width: 60%"%>
+            <%= link_to "商品一覧",items_path, class: "btn btn-template-index light-shadow py-3",style: "width: 60%"%>
         </div>
       </div>
     </div>

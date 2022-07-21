@@ -1,11 +1,13 @@
-<div class="row my-5">
-  <div class="col-lg-10">
-    <%= form_with model: [:admin, genre], local: false do |f| %>
-    <div class="form-group d-flex">
-     <%= f.label :name, "ジャンル名" %>
-     <%= f.text_field :name, placeholder: "ジャンル名", class: "form-control col-lg-3 mx-2 text_field" %>
-     <%= f.submit text, class: "btn btn-template" %>
+<%= form_with model: [:admin, genre], local: false do |f| %>
+  <div class="d-flex">
+    <div class="row form-group">
+     <%= f.label :name, "ジャンル名", class: "col-sm-3" %>
+     <div class="col-sm-7">
+       <%= f.text_field :name, placeholder: "ジャンル名", class: "form-control text_field" %>
+     </div>
+     <div class="col-sm-2">
+       <%= f.submit text, class: "btn btn-template-reverse" %>
+     </div>
     </div>
-    <% end %>
   </div>
-</div>
+<% end %>

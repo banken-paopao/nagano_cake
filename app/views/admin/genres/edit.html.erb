@@ -7,20 +7,21 @@
   <div id="genre_error">
     <%= render "layouts/error", obj: @genre %>
   </div>
-  <%= render "form", text: "変更を保存", genre: @genre %>
-  <div class="row">
-    <div class="col-lg-6">
-      <table class="table text-secondary table-hover">
+  <div class="row mt-5">
+    <div class="col-lg-5">
+      <%= render "form", text: "変更を保存", genre: @genre %>
+    </div>
+    <div class="col-lg-6 offset-lg-1">
+      <table class="table table-hover">
         <thead class="table-secondary">
           <tr>
-            <th class="ml-3">
+            <th>
               ジャンル
             </th>
             <th colspan="2"></th>
           </tr>
         </thead>
         <tbody id="genre_new">
-          
           <%= render "index", genres: @genres %>
         </tbody>
       </table>

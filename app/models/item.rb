@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name, length: {maximum: 50}
     validates :introduction, length: {maximum: 400}
-    validates :price, numericality: { only_integer: true }
+    validates :price, numericality: { only_integer: true,greater_than_or_equal_to: 0 }
   end
   validates :is_active, inclusion: { in: [true, false] }
 
