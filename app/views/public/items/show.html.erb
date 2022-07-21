@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-3 mt-3">
+    <div class="col-2 mt-3">
       <%= render 'public/items/genre', genres: @genres %>
     </div>
-    <div class="col-3 mt-3">
-      <%= image_tag @item.get_image(350,350) %>
+    <div class="col-6 d-flex align-items-center justify-content-center">
+      <%= image_tag @item.get_image(500, 500),class: "item-image" %>
     </div>
-    <div class="col-6 mt-3 text-center">
+    <div class="col-4 mt-3 text-center my-auto">
      <h3 class="mt-3"><%= @item.name %></h3>
       <p><%= @item.introduction %></p>
       <p>¥<%= @item.with_tax_price.to_s(:delimited) %>（税込）</p>
-      <p><%= link_to @item.genre.name, item_search_items_path(genre_id: @item.genre.id, model: "genre"), class: "btn btn-info" %></p>
+      <p id="genre-btn"><%= link_to @item.genre.name, item_search_items_path(genre_id: @item.genre.id, model: "genre"),class: "button tag light-shadow py-3",style: "width: 135px" %></p>
       <div class="mt-2">
         <% if @item.is_active == true %>
           <div class="text-success mt-1">販売中</div>
