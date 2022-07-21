@@ -334,8 +334,8 @@ ul, li {
 
 /* 表示しているページ番号のデザイン */
 .pagination>.active>a {
-  background: #ffe2d5; 
-  border-radius: 15px; 
+  background: #ffe2d5;
+  border-radius: 15px;
 }
 
 /*ホバー時のデザイン*/
@@ -572,11 +572,11 @@ ul, li {
       font-weight: bold;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
   }
-  
+
   .button.tag:active {
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.11);
       transform: translateY(2px);
-  } 
+  }
   .button.light-shadow {
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.14);
   }
@@ -604,11 +604,11 @@ ul, li {
       font-weight: bold;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.22);
   }
-  
+
   .button.tag:active {
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.11);
       transform: translateY(2px);
-  } 
+  }
   .button.light-shadow {
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.14);
   }
@@ -628,7 +628,37 @@ ul, li {
   }
   th,td {
     border:none;
-  }  
+  }
   a{
     font-size: 15px;
   }
+
+
+.slider {
+  margin:0 auto;
+}
+
+.slider img {
+    max-width: 50%;
+    height: 500px;
+    width: auto;
+    margin: 0 auto;
+}
+
+.slider .slick-prev
+{
+    /* デフォルトでは-25px(= スライダーの外側) */
+    left: 5%;
+}
+.slider .slick-next
+{
+    /* デフォルトでは-25px(= スライダーの外側) */
+    right: 5%;
+}
+
+.slider .slick-prev,
+.slider .slick-next
+{
+    /* スライド画像の後ろに隠れないようにする */
+    z-index: 100;
+}
