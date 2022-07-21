@@ -12,7 +12,7 @@ a:hover {
 }
 
 main {
-  min-height: 100vh;
+  min-height: 80vh;
   background: #FAFAF2;
 }
 
@@ -567,6 +567,9 @@ ul, li {
       text-decoration: none;
       padding: 0.5rem;
       background: #f7f7f7;
+      border-top: solid 1px #ffae8a;
+      border-right: solid 1px #ffae8a;
+      border-bottom: solid 1px #ffae8a;
       border-left: solid 6px #ffae8a;
       color: #ffae8a;
       font-weight: bold;
@@ -577,6 +580,10 @@ ul, li {
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.11);
       transform: translateY(2px);
   }
+
+  .button.tag:hover {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  }
   .button.light-shadow {
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.14);
   }
@@ -585,7 +592,13 @@ ul, li {
       transform: translateY(1px);
   }
   a:hover{
-    opacity: 0.6;
+    position: relative;
+    top: -3px;
+    transition: top 2s;
+  }
+  a:active {
+    top: 0;
+    transition: top 0.2s;
   }
 }
 
@@ -599,6 +612,9 @@ ul, li {
       text-decoration: none;
       padding: 0.5rem;
       background: #f7f7f7;
+      border-top: solid 1px #ffae8a;
+      border-right: solid 1px #ffae8a;
+      border-bottom: solid 1px #ffae8a;
       border-left: solid 6px #ffae8a;
       color: #ffae8a;
       font-weight: bold;
@@ -609,6 +625,11 @@ ul, li {
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.11);
       transform: translateY(2px);
   }
+
+  .button.tag:hover {
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  }
+
   .button.light-shadow {
       box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.14);
   }
@@ -617,7 +638,13 @@ ul, li {
       transform: translateY(1px);
   }
   a:hover{
-    opacity: 0.6;
+    position: relative;
+    top: -3px;
+    transition: top 2s;
+  }
+  a:active {
+    top: 0;
+    transition: top 0.2s;
   }
 }
 
