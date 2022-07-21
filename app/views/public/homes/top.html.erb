@@ -8,29 +8,24 @@
   </div>
 </div>
 </div>
-<div class="container slider-wrapper">
+<div class="container">
   <div class="row">
-    <div class="col-12 mt-4">
-      <div class="slider">
-        <% @slide_items.each do |item|%>
-          <%= image_tag item.get_image(500, 500), class: "slide" %>
-        <% end %>
+    <div class="col-2">
+      <div class="mt-4">
+        <%= render 'public/items/genre',genres: @genres %>
       </div>
     </div>
-  </div>
-</div>
-  <div class="container">
-    <div class="row">
-      <div class="col-2">
-        <div class="mt-4">
-          <%= render 'public/items/genre',genres: @genres %>
-        </div>
+    <div class="col-10 mt-4">
+      <div class="slider">
+        <% @slide_items.each do |item|%>
+          <%= link_to image_tag(item.get_image(800, 800)), item_path(item), class: "slide" %>
+        <% end %>
       </div>
-      <div class="col-10 mt-4">
+      <div class="my-5">
         <h2 class="bg-light text-center">新着商品</h2>
         <div class="d-flex flex-wrap justify-content-around">
           <% @items.each do |item| %>
-            <%= link_to item_path(item.id), class:"card mb-3 shadow", style:"padding: 0; height:300px; width: 200px" do %>
+            <%= link_to item_path(item.id), class:"card mb-3 shadow item-card", style:"padding: 0; height:300px; width: 200px" do %>
               <%= image_tag item.get_image(200,200), class:"card-img-top",  style:"height:150px; width:auto; object-fit: cover" %>
               <div class="card-body", style="color:black; background-color:#ffe2d5">
                 <h5 class="card-title"><%= item.name %></h5>
@@ -38,8 +33,9 @@
               </div>
             <% end %>
           <% end %>
-            <%= link_to "商品一覧",items_path, class: "button tag light-shadow py-3 text-secondary",style: "width: 60%"%>
+            <%= link_to "商品一覧",items_path, class: "btn btn-template-index light-shadow py-3 text-secondary",style: "width: 60%"%>
         </div>
       </div>
     </div>
   </div>
+</div>
