@@ -61,4 +61,8 @@ class Customer < ApplicationRecord
   def address_display
     '〒' + postal_code + ' ' + address
   end
+
+  def all_with_tax_price
+    cart_items.inject(0){|total, cart_item| total + cart_item.subtotal}
+  end
 end
