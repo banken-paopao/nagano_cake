@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
   dots: true,
   arrows: true,
   autoplay: true,
-  autoplaySpeed: 1000,
+  autoplaySpeed: 3500,
   dots: true,
   pauseOnFocus: false,
   pauseOnHover: false,
