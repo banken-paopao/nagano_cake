@@ -376,9 +376,6 @@ input#customer_address{
   }
 }
 
-.mypage-title{
-  border-bottom: solid 3px #ffae8a;
-}
 
 
 /* PCでは非表示にしておく */
@@ -388,6 +385,9 @@ input#customer_address{
 }
 
 .mypage{
+  .mypage-title{
+    border-bottom: solid 3px #ffae8a;
+  }
   .title{
     display: flex;
     .edit-icon{
@@ -408,19 +408,28 @@ input#customer_address{
   }
 }
 
-.btn--orange,
-a.btn--orange {
-  color: #fff;
-  background-color: #eb6100;
-}
-.btn--orange:hover,
-a.btn--orange:hover {
-  color: #fff;
-  background: #ffae8a;
-}
+  .btn--orange,
+  a.btn--orange {
+    color: #fff;
+    background-color: #eb6100;
+  }
+  .btn--orange:hover,
+  a.btn--orange:hover {
+    color: #fff;
+    background: #ffae8a;
+  }
+  
+  a.btn--radius {
+     border-radius: 100vh;
+  }
 
-a.btn--radius {
-   border-radius: 100vh;
+.order-index{
+  .order-title{
+    border-bottom: solid 3px #ffae8a;
+  }
+  .table-color{
+    background: #ffe2d5b8;
+  }
 }
 
 /* スマホサイズで見た場合のスタイル */
