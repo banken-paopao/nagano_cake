@@ -7,13 +7,27 @@
     購入には会員登録が必要になります。</p>
   </div>
 </div>
+</div>
+<div class="container slider-wrapper">
+  <div class="row">
+    <div class="col-12 mt-4">
+      <div class="slider">
+        <% @slide_items.each do |item|%>
+          <%= image_tag item.get_image(500, 500), class: "slide" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="container">
     <div class="row">
       <div class="col-2">
         <div class="mt-4">
           <%= render 'public/items/genre',genres: @genres %>
         </div>
-      </div>
+
+      <div class="row">
+
       <div class="col-10 mt-4">
         <h2 class="bg-light text-center">新着商品</h2>
         <div class="d-flex flex-wrap justify-content-around">
@@ -29,5 +43,8 @@
             <%= link_to "商品一覧",items_path, class: "button tag light-shadow py-3 text-secondary",style: "width: 60%"%>
         </div>
       </div>
+
+      </div>
+
     </div>
   </div>
