@@ -348,6 +348,25 @@ ul, li {
   }
 }
 
+/*topページのカードのデザイン*/
+.item-card {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  top: 0;
+  transition: all 0.4s 0s ease;
+  &:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+    top: -10px;
+   }
+  &:active {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: 2px;
+   }
+}
+
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
   border: none;
