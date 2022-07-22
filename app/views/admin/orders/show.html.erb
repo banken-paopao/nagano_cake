@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <table class="mt-3" cellpadding="10">
-      <tr>
+      <tr class="table-color">
         <th>購入者</th>
         <td><%= link_to @order.customer.full_name,admin_customer_path(@order.customer) %></td>
       </tr>
@@ -30,9 +30,13 @@
       <tr>
         <th>注文ステータス</th>
         <td>
+
           <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
-            <%= f.select :status, options_for_select(Order.statuses_i18n.keys.map { |k| [Order.statuses_i18n[k], k]}, selected: @order.status), {prompt: "選択してください"}, class: "prefecture-select" %>
-            <%= f.submit "更新", class: "ml-3 btn btn-success" %>
+          <div class="d-flex">
+              <%= f.select :status, options_for_select(Order.statuses_i18n.keys.map { |k| [Order.statuses_i18n[k], k]}, selected: @order.status),
+              {prompt: "選択してください"}, class: "prefecture-select form-control" %>
+            <%= f.submit "更新", class: "ml-3 btn btn-template-reverse" %>
+          </div>
           <% end %>
         </td>
       </tr>
@@ -41,8 +45,8 @@
   <div class="row">
     <div class="col-8">
       <table class="table text-secondary table-hover">
-        <thead class="table-secondary">
-          <tr>
+        <thead>
+          <tr class="table-color">
             <th>商品名</th>
             <th>単価(税込)</th>
             <th>数量</th>
@@ -58,9 +62,13 @@
               <td><%= order_detail.amount %></td>
               <td><%= order_detail.subtotal.to_s(:delimited) %></td>
               <td>
+                  
                 <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
-                  <%= f.select :making_status, options_for_select(OrderDetail.making_statuses_i18n.keys.map { |k| [OrderDetail.making_statuses_i18n[k], k]}, selected: order_detail.making_status), {prompt: "選択してください"}, class: "prefecture-select" %>
-                  <%= f.submit "更新", class: "ml-3 btn btn-success" %>
+                <di class="d-flex">
+                  <%= f.select :making_status, options_for_select(OrderDetail.making_statuses_i18n.keys.map { |k| [OrderDetail.making_statuses_i18n[k], k]}, selected: order_detail.making_status),
+                  {prompt: "選択してください"}, class: "prefecture-select form-control" %>
+                  <%= f.submit "更新", class: "ml-3 btn btn-template-reverse" %>
+                </div>
                 <% end %>
               </td>
             </tr>
@@ -69,10 +77,10 @@
             <!--ここまで-->
           <% end %>
         </tbody>
-      </table>    
+      </table>
     </div>
     <div class="col-1">
-    </div>  
+    </div>
     <div class="col-lg-3 d-flex align-items-end">
       <table class="float-right" cellpadding="5">
         <tr>

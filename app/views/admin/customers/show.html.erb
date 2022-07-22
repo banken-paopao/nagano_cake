@@ -1,7 +1,7 @@
 <div class="container py-5 text-secondary">
   <div class="row">
     <div class="col-lg-3">
-      <h5 class="border-bottom"><%= @customer.first_name %><%= @customer.last_name %>さんの会員詳細</h5>
+      <h5 class="border-bottom"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h5>
     </div>
   </div>
   <div class="row mt-5">
@@ -48,10 +48,10 @@
         <th></th>
         <td class="d-inline-flex">
           <div class="icon">
-            <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-success" %>
+            <%= link_to "編集する", edit_admin_customer_path(@customer), class: "btn btn-template" %>
           </div>
           <div class="icon ml-5">
-            <%= link_to "注文履歴一覧を見る", admin_order_history_path(@customer), class: "btn btn-primary" %>
+            <%= link_to "注文履歴一覧を見る", admin_order_history_path(@customer), class: "btn btn-template-reverse" %>
           </div>
         </td>
       </tr>
