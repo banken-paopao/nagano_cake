@@ -22,8 +22,10 @@
           <div class="text-success mt-1">販売中</div>
           <%= form_with model: @cart_item, url: cart_items_path do |f| %>
             <%= f.hidden_field :item_id, value: @item.id %>
-            <p class="p-2 bd-highlight"><%= f.select :amount, *[1..10] %>
-            <%= f.submit "カートに入れる", class: "btn btn-success" %></p>
+            <div class="row d-flex">
+              <%= f.select :amount, *[1..10], {}, class: "form-control col-2 m-auto" %>
+              <%= f.submit "カートに入れる", class: "btn btn-template-about col-9 m-auto" %>
+            </div>
           <% end %>
         <% else %>
           <div class="text-success mt-1">販売停止中</div>
