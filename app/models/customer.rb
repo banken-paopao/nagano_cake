@@ -33,6 +33,8 @@ class Customer < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :orders,     dependent: :destroy
   has_many :addresses,  dependent: :destroy
+  has_many :favorites,  dependent: :destroy
+  has_many :favorite_items, through: :favorites, source: :item
 
   with_options presence: true do
     validates :address

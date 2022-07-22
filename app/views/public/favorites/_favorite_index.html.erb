@@ -1,0 +1,26 @@
+<div class="text-center">
+  <h4>お気に入り</h4>
+  <div id="favorite-scroll">
+    <% current_customer.favorite_items.each do |item| %>
+      <div class="favorite-reference-position-side">
+        <%= link_to item_path(item.id), class:"mb-3 card item-card-side", style:"padding: 0;" do %>
+          <div class="row">
+            <div class="col-md-4">
+            <%= image_tag item.get_image(200,200), class:"card-img", style: "height: 100px; width: 115px;" %>
+            </div>
+          <div class="col-md-8">
+            <div class="card-body", style="height: 100px;color:black; background-color:#ffe2d5">
+              <h5 class="card-title"><%= item.name %></h5>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <div class="favorite-position-side">
+          <div class="favorite_btn_<%= item.id %>">
+            <%= render "public/favorites/favorite", item: item %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

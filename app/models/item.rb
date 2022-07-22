@@ -15,6 +15,7 @@ class Item < ApplicationRecord
   has_many :cart_items,    dependent: :destroy
   has_many :order_details, dependent: :destroy
   belongs_to :genre
+  has_many :favorites,     dependent: :destroy
 
   has_one_attached :image
 
@@ -47,5 +48,9 @@ class Item < ApplicationRecord
     else
       Item.where(genre_id: search_value)
     end
+  end
+  
+  def favorited_by?(customer)
+    favorites.exists?(customer_id: customer.id)
   end
 end
