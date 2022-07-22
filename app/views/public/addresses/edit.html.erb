@@ -5,6 +5,7 @@
        <div class="col-12 mt-5 mb-3 mx-auto"><h4 class="my-auto mypage-title">配送先編集</h4></div>
     </div>
   </div>
+  <%= render "layouts/error", obj: @address %>
   <div class="row">
     <div class="col-10 mt-3 offset-1">
       <%= form_with model: @address, method: :patch do |f| %>

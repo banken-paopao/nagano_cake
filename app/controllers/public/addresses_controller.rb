@@ -17,8 +17,8 @@ class Public::AddressesController < ApplicationController
       flash[:notice] = "住所登録に成功しました。"
       redirect_to request.referer
     else
-      @addresses = current_customer.addresses
-      flash[:notice] = "住所登録に失敗しました。"
+      @addresses = current_customer.addresses.page(params[:page])
+      flash[:danger] = "住所登録に失敗しました。"
       render :index
     end
   end
@@ -29,7 +29,7 @@ class Public::AddressesController < ApplicationController
       flash[:notice] = "配送先を保存しました。"
       redirect_to addresses_path
     else
-      flash[:notice] = "配送先の保存に失敗しました。"
+      flash[:danger] = "配送先の保存に失敗しました。"
       render :edit
     end
   end
