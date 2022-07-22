@@ -1,64 +1,70 @@
 <% if current_customer.cart_items.blank? %>
   <div class ="container">
-    <div class="row justify-content-center">
-      <p class="text-center p-5">カートに商品がありません</p>
+    <div class="row justify-content-center pt-5">
+      <h4 class="text-center p-5">カートに商品がありません</h4>
       <div class="w-100"></div>
       <%= link_to '買い物を続ける', root_path, class: 'btn btn-md btn-primary' %>
     </div>
   </div>
 <% else %>
-  <div class="container">
+  <div class="container mypage">
     <div class="row justify-content-center">
-      <div class="col-xl-9 col-lg-10">
-        <div class="d-flex my-3">
-          <h5 class="my-auto">ショッピングカート</h5>
-          <div class="ml-auto">
-            <%= link_to 'カートを空にする', destroy_all_cart_items_path, method: :delete, remote: true,data: {confirm: "すべて空にしますか？"}, class: 'btn btn-md btn-danger' %>
-          </div>
+      <div class="col-12 col-lg-10">
+        <div class="d-flex my-2">
+          <div class="col-12 mt-5 mb-3 mx-auto"><h4 class="my-auto mypage-title">ショッピングカート</h4></div>
         </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>商品名</th>
-              <th>単価(税込)</th>
-              <th>数量</th>
-              <th>小計</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody class="cart-items">
-            <% current_customer.cart_items.each do |cart_item| %>
-              <tr id="cart_<%= cart_item.id %>">
-                <td class="align-middle">
-                  <%= image_tag cart_item.item.get_image(50,75) %>
-                  <%= cart_item.item.name %>
-                </td>
-                <!--税込み価格10%modelに記載-->
-                <td class="align-middle"><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
-                <td class="align-middle" name="myform">
-                  <%= form_with model: cart_item,class: 'm-auto', id: 'form', local: false do |f| %>
-                    <%= f.select :amount, *[1..99] ,class: 'cart-item-select' %>
-                    <%= f.submit '更新' %>
-                  <% end %>
-                </td>
-                <td class="align-middle sub-total"><%= cart_item.subtotal.to_s(:delimited) %></td>
-                <td class="text-right align-middle"><%= link_to '削除する', cart_item_path(cart_item), method: :delete, remote: true, class: 'btn btn-md btn-danger' %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <div class="d-flex my-5">
-          <%= link_to '買い物を続ける', root_path, class: 'btn btn-md btn-primary my-auto' %>
-          <table class="table col-5 ml-auto my-auto">
-            <tbody>
+        <div class="col-11 mx-auto">
+          <div class="text-right mb-1">
+            <%= link_to 'カートを空にする', destroy_all_cart_items_path, method: :delete, remote: true,data: {confirm: "すべて空にしますか？"}, class: 'btn btn--red btn--radius' %>
+          </div>
+          <table class="table mx-auto">
+            <thead>
               <tr>
-                <td>合計金額</td>
-                <td class="all-with-tax-price"><%= current_customer.all_with_tax_price %></td>
+                <th>商品名</th>
+                <th>単価(税込)</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th></th>
               </tr>
+            </thead>
+            <tbody class="cart-items">
+              <% current_customer.cart_items.each do |cart_item| %>
+                <tr id="cart_<%= cart_item.id %>">
+                  <td class="align-middle">
+                    <%= image_tag cart_item.item.get_image(50,75) %>
+                    <%= cart_item.item.name %>
+                  </td>
+                  <!--税込み価格10%modelに記載-->
+                  <td class="align-middle"><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
+                  <td class="align-middle" name="myform">
+                    <%= form_with model: cart_item,class: 'm-auto', id: 'form', local: false do |f| %>
+                      <%= f.select :amount, *[1..99] ,class: 'cart-item-select' %>
+                      <%= f.submit '更新' %>
+                    <% end %>
+                  </td>
+                  <td class="align-middle sub-total"><%= cart_item.subtotal.to_s(:delimited) %></td>
+                  <td class="text-right align-middle">
+                    <%= link_to cart_item_path(cart_item), method: :delete, remote: true do %>
+                      <i class="fa-solid fa-trash-can fa-2x" style="color: gray;"></i>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
             </tbody>
           </table>
+          <div class="d-flex my-1">
+            <%= link_to '買い物を続ける', root_path, class: 'btn btn--blue btn--radius my-auto' %>
+            <table class="table col-5 ml-auto my-auto">
+              <tbody>
+                <tr>
+                  <td>合計金額</td>
+                  <td class="all-with-tax-price"><%= current_customer.all_with_tax_price %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row justify-content-center"><%= link_to '注文情報入力画面', new_order_path, class: 'btn btn--green btn--radius' %></div>
         </div>
-        <div class="row justify-content-center"><%= link_to '注文情報入力画面', new_order_path, class: 'btn btn-md btn-success my-3' %></div>
       </div>
     </div>
   </div>

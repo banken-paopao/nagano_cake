@@ -120,3 +120,57 @@
     outline: none
   }
 }
+
+// 赤ボタン
+.btn--red,
+a.btn--red {
+  color: #fff;
+  background-color: #FF0000;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+}
+.btn--red:hover,
+a.btn--red:hover {
+  color: #fff;
+  background: #ff0000ad;
+  box-shadow: 0 0 3px rgba(0,0,0,0);
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+
+// 青ボタン
+.btn--blue,
+a.btn--blue {
+  color: #fff;
+  background-color: #0000FF;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+}
+.btn--blue:hover,
+a.btn--blue:hover {
+  color: #fff;
+  background: #0000FFad;
+  box-shadow: 0 0 3px rgba(0,0,0,0);
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
+
+// 緑ボタン
+.btn--green,
+a.btn--green {
+  color: #fff;
+  background-color: #008000;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+}
+.btn--green:hover,
+a.btn--green:hover {
+  color: #fff;
+  background: #008000ad;
+  box-shadow: 0 0 3px rgba(0,0,0,0);
+}
+
+a.btn--radius {
+   border-radius: 100vh;
+}
