@@ -1,0 +1,55 @@
+.favorite{
+  &-reference-position {
+    width: 200px;
+    height: 300px;
+    margin: 16px 0;
+    position: relative;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    top: 0;
+    transition: all 0.4s 0s ease;
+    &:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+    top: -10px;
+   }
+    &:active {
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      top: 2px;
+    }
+  }
+  &-position {
+    position: absolute;
+    bottom: 20px;
+    right: 16px;
+  }
+  &-remove-icon {
+    color: #ff6347;
+  }
+  &-icon {
+    color: #696969;
+  }
+  &-size a {
+    font-size: 48px;
+  }
+  &-reference-position-side {
+    width: 300px;
+    height: 100px;
+    margin: 16px 0;
+    position: relative;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    top: 0;
+    transition: all 0.4s 0s ease;
+    &:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+    top: -10px;
+   }
+    &:active {
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      top: 2px;
+    }
+  }
+  &-position-side {
+    position: absolute;
+    bottom: 20px;
+    right: 16px;
+  }
+}

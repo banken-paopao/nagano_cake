@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     get '/about' => 'homes#about'
 
     resources :items, only: [:index, :show] do
+      resource :favorites, only: [:create, :destroy]
       collection do
         get "genre_search" => "items#genre_search"
         get '/item_search' => 'items#item_search'
