@@ -1,5 +1,7 @@
 class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_correct_user, only: [:edit, :edit, :destroy]
+
 
   def index
     @addresses = current_customer.addresses.page(params[:page])
@@ -44,5 +46,13 @@ class Public::AddressesController < ApplicationController
 
   def address_params
     params.require(:address).permit(:postal_code, :address, :name)
+  end
+
+  def ensure_correct_user
+    @address = Address.find(params[:id])
+    unless @address.customer == current_customer
+      flash[:danger] = "アカウントが違うため編集できません"
+      redirect_to root_path
+    end
   end
 end

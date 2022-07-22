@@ -1,5 +1,7 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :ensure_correct_user, only: [:show]
+
   def new
     if current_customer.cart_items.blank?
       redirect_to root_path
@@ -95,5 +97,13 @@ class Public::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:customer_id, :payment_method, :postal_code, :address, :name, :shipping_cost, :total_payment)
+  end
+
+  def ensure_correct_user
+    @order = Order.find(params[:id])
+    unless @order.customer == current_customer
+      flash[:danger] = "アカウントが違うため閲覧できません"
+      redirect_to root_path
+    end
   end
 end
