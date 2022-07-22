@@ -7,7 +7,7 @@ class Admin::OrdersController < ApplicationController
   end
   
   def history
-    @order = Order.find(params[:id])
+    @customer = Customer.find(params[:id])
     @orders = Order.where(customer_id: params[:id]).order(id: "DESC").page(params[:page])
   end
 
