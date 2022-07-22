@@ -72,6 +72,8 @@ class Public::OrdersController < ApplicationController
       customer.cart_items.destroy_all
       redirect_to complete_orders_path
     else
+      @order = Order.new(order_params)
+      flash[:danger] = "情報が正しく入力されていません"
       render :new
     end
   end
