@@ -351,18 +351,20 @@ ul, li {
   a.btn--orange {
     color: #fff;
     background-color: #eb6100;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
   }
   .btn--orange:hover,
   a.btn--orange:hover {
     color: #fff;
     background: #ffae8a;
+    box-shadow: 0 0 3px rgba(0,0,0,0);
   }
 
   a.btn--radius {
      border-radius: 100vh;
   }
 
-.order-index{
+.order-index,.order-show{
   .order-title{
     border-bottom: solid 3px #ffae8a;
   }
