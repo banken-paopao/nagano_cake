@@ -7,12 +7,12 @@
       <%= form_with model: @order, url: confirm_orders_path, method: :post do |f| %>
         <p class="my-2"><strong>支払い方法</strong></p>
         <div class="col-12 mx-4">
-          <div class="form_group">
+          <div class="form-group">
             <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
             <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %>
           </div>
 
-          <div class="form_group">
+          <div class="form-group">
             <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
             <%= f.label :payment_method_transfar, Order.payment_methods_i18n[:transfar] %>
           </div>
@@ -20,7 +20,7 @@
 
         <p class="my-2"><strong>お届け先</strong></p>
         <div class="col-12 mx-4">
-          <div class="form_group">
+          <div class="form-group">
             <%= f.radio_button :select_address, 0, checked: true %>
             <%= f.label :select_address_0, "ご自身の住所", class: 'my-auto' %>
             <div class="ml-4">
@@ -31,7 +31,7 @@
             </div>
           </div>
 
-          <div class="form_group">
+          <div class="form-group">
             <% if current_customer.addresses.size == 0 %>
             <%= f.radio_button :select_address, 1, disabled: true %>
             <%= f.label :select_address_1, "登録済住所から選択" %>
@@ -42,12 +42,12 @@
             <%= f.radio_button :select_address, 1 %>
             <%= f.label :select_address_1, "登録済住所から選択" %>
               <div class="ml-4 mb-3" >
-                <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses,:id, :address_display) %>
+                <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses,:id, :address_display), {}, class: "form-control" %>
               </div>
             <% end %>
           </div>
 
-          <div class="form_group col-10 pl-0">
+          <div class="form-group col-10 pl-0">
             <%= f.radio_button :select_address, 2 %>
             <%= f.label :select_address_2, "新しいお届け先" %>
             <table class="table table-sm table-borderless ml-4">
