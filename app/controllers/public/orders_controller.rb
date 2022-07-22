@@ -4,6 +4,7 @@ class Public::OrdersController < ApplicationController
     if current_customer.cart_items.blank?
       redirect_to root_path
     else
+      @address = Address.new
       @order = Order.new
     end
   end
@@ -13,17 +14,23 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     select_address = params[:order][:select_address]
     case select_address
-    when '0' then
-      @order.postal_code = current_customer.postal_code
-      @order.address = current_customer.address
-      @order.name = current_customer.full_name
-    when '1' then
-      @address = Address.find(params[:order][:address_id])
-      @order.postal_code = @address.postal_code
-      @order.address = @address.address
-      @order.name = @address.name
-    when '2' then
-    else
+      when '0' then
+        @order.postal_code = current_customer.postal_code
+        @order.address = current_customer.address
+        @order.name = current_customer.full_name
+      when '1' then
+        @address = Address.find(params[:order][:address_id])
+        @order.postal_code = @address.postal_code
+        @order.address = @address.address
+        @order.name = @address.name
+      when '2' then
+        @address = current_customer.addresses.new(postal_code: @order.postal_code, address: @order.address, name: @order.name)
+        if @address.save
+          @address.destroy
+        else
+          render :new
+        end
+      else
       render :new
     end
   end
