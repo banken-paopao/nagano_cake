@@ -75,7 +75,7 @@
             <%= f.hidden_field :name, value: @order.name %>
             <%= f.hidden_field :shipping_cost, value: @order.default_sipping_cost %>
             <%= f.hidden_field :total_payment, value: @all_with_tax_price + @order.default_sipping_cost %>
-            <%= f.submit '注文を確定する', class: 'btn btn-md btn-success' %>
+            <%= f.submit '注文を確定する', class: 'btn btn-md btn--orange' %>
           <% end %>
         </div>
       </div>
