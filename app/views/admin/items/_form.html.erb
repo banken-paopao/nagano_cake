@@ -1,30 +1,38 @@
 <div class="row my-5">
-    <div class="col-lg-3 mx-auto">
+    <div class="col-lg-5 mx-auto">
       <%= form_with model: [:admin, @item] do |f| %>
-      <div class="form-group custom-file mb-3">
+      <div class="form-group col-sm-12 custom-file mb-3">
         <%= f.file_field :image, accept: "image/*", class: "custom-file-input" %>
         <%= f.label :image, "商品画像を選択...", class: "custom-file-label text-secondary", data: {browse: "参照"} %>
       </div>
-      <div class="form-group">
-        <%= f.label :name, "商品名" %>
-        <%= f.text_field :name, class: "form-control" %>
+      <div class="row form-group">
+        <%= f.label :name, "商品名", class: "col-sm-3" %>
+        <div class="col-sm-9">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :introduction, "商品説明" %>
-        <%= f.text_area :introduction, class: "form-control", rows: "8" %>
+      <div class="row form-group">
+        <%= f.label :introduction, "商品説明", class: "col-sm-3" %>
+        <div class="col-sm-9">
+          <%= f.text_area :introduction, class: "form-control", rows: "8" %>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :genre_id, "ジャンル" %>
-        <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name, option),
-        { include_blank: select }, class: "form-control text-secondary" %>
+      <div class="row form-group">
+        <%= f.label :genre_id, "ジャンル", class: "col-sm-3" %>
+        <div class="col-sm-9">
+          <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name, option),
+          { include_blank: select }, class: "form-control text-secondary" %>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :price %>
-        <%= f.number_field :price, placeholder: "値段を入力してください", class: "form-control" %>円
+      <div class="row form-group">
+        <%= f.label :price, "値段", class: "col-sm-3" %>
+        <div class="col-sm-9">
+          <%= f.number_field :price, placeholder: "値段を入力してください", class: "form-control" %>
+        </div>
       </div>
-      <div class="form-group">
-        <%= f.label :is_active, "販売ステータス" %>
-        <div class="form-check">
+      <div class="row form-group">
+        <%= f.label :is_active, "販売ステータス", class: "col-sm-3" %>
+        <div class="form-check col-sm-9">
           <%= f.radio_button :is_active, true %>
           <%= f.label :is_active, "販売中", value: true, class: "form-check-label" %>
           <%= f.radio_button :is_active, false %>
@@ -32,7 +40,7 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.submit text, class: "btn btn-block btn-template" %>
+        <%= f.submit text, class: "btn btn-block btn-template-reverse" %>
       </div>
       <% end %>
     </div>
