@@ -55,7 +55,7 @@
             <tbody>
               <tr>
                 <td>合計金額</td>
-                <td class="all-with-tax-price"><%= current_customer.all_with_tax_price %></td>
+                <td class="all-with-tax-price"><%= current_customer.all_with_tax_price.to_s(:delimited) %></td>
               </tr>
             </tbody>
           </table>
