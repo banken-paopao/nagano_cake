@@ -1,12 +1,14 @@
-<div class="main">
-  <div class="main-top">
-    <%= image_tag "cake2.jpeg", class: "main-top-image" %>
-    <p class="main-top-text">ようこそ、ながのCAKEへ！</br>
-    このサイトは、ケーキ販売のECサイトになります。</br>
-    会員でない方も商品の閲覧はできますが、</br>
-    購入には会員登録が必要になります。</p>
+<% if customer_signed_in? == false %>
+  <div class="main">
+    <div class="main-top">
+      <%= image_tag "cake2.jpeg", class: "main-top-image" %>
+      <p class="main-top-text">ようこそ、ながのCAKEへ！</br>
+      このサイトは、ケーキ販売のECサイトになります。</br>
+      会員でない方も商品の閲覧はできますが、</br>
+      購入には会員登録が必要になります。</p>
+    </div>
   </div>
-</div>
+<% end %>
 </div>
 <div class="container">
   <div class="row">
