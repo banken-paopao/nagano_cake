@@ -12,24 +12,7 @@
           <% else %>
             <h5 class=" text-center mb-5">"<%= @search_name %>"の検索に一致する商品は見つかりませんでした</h5>
           <% end %>
-          <div class="d-flex flex-wrap justify-content-around">
-          <% @search_result.each do |item| %>
-          <div class="favorite-reference-position">
-            <%= link_to item_path(item.id), class:"card mb-3 item-card", style:"padding: 0;" do %>
-              <%= image_tag item.get_image(200,200), class:"card-img-top",  style:"height:150px; width:auto; object-fit: cover" %>
-              <div class="card-body", style="color:black; background-color:#ffe2d5">
-                <h5 class="card-title"><%= item.name %></h5>
-                <p class="card-text">¥<%= item.price.to_s(:delimited) %></p>
-              </div>
-            <% end %>
-            <div class="favorite-position">
-              <div class="favorite_btn_<%= item.id %> favorite-small-size">
-                <%= render "public/favorites/favorite", item: item %>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </div>
+          <%= render "public/items/index", items: @search_result %>
           <div class="row justify-content-center">
             <%= paginate @search_result %>
           </div>
