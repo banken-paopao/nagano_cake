@@ -95,10 +95,11 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:customer_id, :payment_method, :postal_code, :address, :name, :shipping_cost, :total_payment)
   end
   
- def ensure_correct_user
-  @order = Order.find(params[:id])
-  unless @order.customer == current_customer
-    flash[:danger] = "アカウントが違うため閲覧できません"
-    redirect_to root_path
+   def ensure_correct_user
+    @order = Order.find(params[:id])
+    unless @order.customer == current_customer
+      flash[:danger] = "アカウントが違うため閲覧できません"
+      redirect_to root_path
+    end
   end
 end
