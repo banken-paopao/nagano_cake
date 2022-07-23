@@ -41,22 +41,22 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(order_params)
-    if order.save
+    @order = Order.new(order_params)
+    if @order.save
       current_customer.cart_items.each do |cart_item|
         order_detail = OrderDetail.new
         order_detail.item_id = cart_item.item_id
-        order_detail.order_id = order.id
+        order_detail.order_id = @order.id
         order_detail.amount = cart_item.amount
         order_detail.price = cart_item.item.with_tax_price
         order_detail.save
       end
       customer = current_customer
-      unless  customer.postal_code == order.postal_code && customer.address == order.address && customer.full_name == order.name
+      unless  customer.postal_code == @order.postal_code && customer.address == @order.address && customer.full_name == @order.name
         # オーダーに登録された配送先がカスタマー住所じゃない時の処理
         count = 0
         customer.addresses.each do |address|
-          unless address.postal_code == order.postal_code && address.address == order.address && address.name == order.name
+          unless address.postal_code == @order.postal_code && address.address == @order.address && address.name == @order.name
             # オーダーに登録された配送先が配送先一覧に登録されていない時にカウントを行う
             count += 1
           end
@@ -65,15 +65,17 @@ class Public::OrdersController < ApplicationController
         if customer.addresses.size == count
           address = Address.new
           address.customer_id = current_customer.id
-          address.postal_code = order.postal_code
-          address.address = order.address
-          address.name = order.name
+          address.postal_code = @order.postal_code
+          address.address = @order.address
+          address.name = @order.name
           address.save
         end
       end
       customer.cart_items.destroy_all
       redirect_to complete_orders_path
     else
+      @order = Order.new(order_params)
+      flash[:danger] = "情報が正しく入力されていません"
       render :new
     end
   end
