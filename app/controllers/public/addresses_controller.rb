@@ -1,6 +1,6 @@
 class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!
-  before_action :ensure_correct_user, only: [:edit, :edit, :destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
     @addresses = current_customer.addresses.page(params[:page])
@@ -15,8 +15,7 @@ class Public::AddressesController < ApplicationController
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
     if @address.save
-      flash[:notice] = "住所登録に成功しました。"
-      redirect_to request.referer
+      redirect_to request.referer, notice: "住所登録に成功しました。"
     else
       @addresses = current_customer.addresses.page(params[:page])
       flash[:danger] = "住所登録に失敗しました。"
@@ -27,8 +26,7 @@ class Public::AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
-      flash[:notice] = "配送先を保存しました。"
-      redirect_to addresses_path
+      redirect_to addresses_path, notice: "配送先を保存しました。"
     else
       flash[:danger] = "配送先の保存に失敗しました。"
       render :edit

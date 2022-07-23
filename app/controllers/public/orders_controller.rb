@@ -30,9 +30,11 @@ class Public::OrdersController < ApplicationController
       if @address.save
         @address.destroy
       else
+        flash[:danger] = "住所が正しく入力されていません"
         render :new
       end
     else
+      flash[:danger] = "支払方法と住所を選択してください"
       render :new
     end
   end
@@ -85,12 +87,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    # 注文完了画面からページを戻ろうとするとshow画面に行くのを阻止
-    if params[:id] == 'confirm'
-      redirect_to root_path
-    else
-      @order = Order.find(params[:id])
-    end
+    @order = Order.find(params[:id])
   end
 
   private
@@ -100,10 +97,16 @@ class Public::OrdersController < ApplicationController
   end
 
   def ensure_correct_user
-    @order = Order.find(params[:id])
-    unless @order.customer == current_customer
-      flash[:danger] = "アカウントが違うため閲覧できません"
+    # 注文完了画面からページを戻ろうとするとshow画面に行くのを阻止
+    if params[:id] == 'confirm'
+      flash[:danger] = "予期せぬ不具合が発生しました"
       redirect_to root_path
+    else
+      @order = Order.find(params[:id])
+      unless @order.customer == current_customer
+        flash[:danger] = "アカウントが違うため閲覧できません"
+        redirect_to root_path
+      end
     end
   end
 end

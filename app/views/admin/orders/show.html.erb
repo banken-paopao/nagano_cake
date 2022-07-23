@@ -73,7 +73,7 @@
               </td>
             </tr>
             <!--商品合計金額(画面上非表示)-->
-            <% @total += @total + order_detail.subtotal %>
+            <% @total += order_detail.subtotal %>
             <!--ここまで-->
           <% end %>
         </tbody>
