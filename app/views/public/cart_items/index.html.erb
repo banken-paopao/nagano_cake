@@ -36,15 +36,15 @@
                 <!--税込み価格10%modelに記載-->
                 <td class="align-middle"><%= cart_item.item.with_tax_price.to_s(:delimited) %></td>
                 <td class="align-middle" name="myform">
-                  <%= form_with model: cart_item,class: 'm-auto', id: 'form', local: false do |f| %>
+                  <%= form_with model: cart_item, class: 'm-auto', id: 'form', local: false do |f| %>
                     <div class="row d-flex">
-                      <%= f.select :amount, *[1..99] , {} ,class: 'cart-item-select form-control col-md-4 pr-md-2 pr-lg-0 my-auto' %>
+                      <%= f.select :amount, *[1..99] , {} , class: 'cart-item-select form-control col-md-4 pr-md-2 pr-lg-0 my-auto' %>
                       <%= f.submit '更新', class: "btn btn-template-reverse col-md-4 my-auto pr-md-5 pr-lg-3" %>
                     </div>
                   <% end %>
                 </td>
                 <td class="align-middle sub-total"><%= cart_item.subtotal.to_s(:delimited) %></td>
-                <td class="text-right align-middle"><%= link_to '削除する', cart_item_path(cart_item), method: :delete, remote: true, class: 'btn btn-md btn-outline-danger ' %></td>
+                <td class="text-right align-middle"><%= link_to '削除する', cart_item_path(cart_item), method: :delete, remote: true, class: 'btn btn-md btn-outline-danger' %></td>
               </tr>
             <% end %>
           </tbody>
