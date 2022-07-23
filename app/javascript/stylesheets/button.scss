@@ -120,3 +120,24 @@
     outline: none
   }
 }
+
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #ffae8a;
+  box-shadow: 0 0 3px rgba(0,0,0,0);
+}
+.btn--orange:focus,
+a.btn--orange:hover {
+    box-shadow: 0 0 0 0.2rem rgba(236, 109, 78, .5);
+  }
+
+a.btn--radius {
+   border-radius: 100vh;
+}
