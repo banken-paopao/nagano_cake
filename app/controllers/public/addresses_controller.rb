@@ -2,7 +2,6 @@ class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!
   before_action :ensure_correct_user, only: [:edit, :edit, :destroy]
 
-
   def index
     @addresses = current_customer.addresses.page(params[:page])
     @address = Address.new

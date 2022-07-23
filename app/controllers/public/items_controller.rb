@@ -13,13 +13,13 @@ class Public::ItemsController < ApplicationController
   def item_search
     @model = params[:model]
     if @model == "item"
-      unless params[:content] == ""
+      if params[:content] == ""
+        flash[:danger] = "商品名を入力してください"
+        redirect_to items_path
+      else
         @genres = Genre.all
         @search_name = params[:content]
         @search_result = Item.search_for(@model, @search_name).page(params[:page]).per(8)
-      else
-        flash[:danger] = "商品名を入力してください"
-        redirect_to items_path
       end
     else
       @genres = Genre.all
