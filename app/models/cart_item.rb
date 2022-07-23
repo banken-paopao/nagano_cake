@@ -18,8 +18,4 @@ class CartItem < ApplicationRecord
     validates :customer_id
     validates :item_id
   end
-
-  def subtotal
-    item.with_tax_price * amount
-  end
 end
