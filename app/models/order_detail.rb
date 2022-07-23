@@ -24,8 +24,4 @@ class OrderDetail < ApplicationRecord
     validates :order_id
   end
   validates :making_status, inclusion: { in: OrderDetail.making_statuses.keys }
-
-  def subtotal
-    item.with_tax_price * amount
-  end
 end
