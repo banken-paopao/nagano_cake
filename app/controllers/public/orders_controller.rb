@@ -96,7 +96,7 @@ class Public::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:customer_id, :payment_method, :postal_code, :address, :name, :shipping_cost, :total_payment)
   end
-  
+
   def ensure_correct_user
     @order = Order.find(params[:id])
     unless @order.customer == current_customer
