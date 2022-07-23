@@ -16,9 +16,6 @@
         <div class="navbar-nav text-light font-weight-bold d-inline-block">
           ようこそ、<%= current_customer.last_name %>さん！
         </div>
-      <% elsif admin_signed_in? %>
-        <div class="navbar-nav text-light font-weight-bold d-inline-block d-none d-sm-block">
-        </div>
       <% end %>
     </div>
       <span class="ml-auto col-3 d-none d-sm-block">
