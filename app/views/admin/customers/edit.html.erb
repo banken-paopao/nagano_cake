@@ -33,12 +33,12 @@
         </tr>
         <tr>
           <th>メールアドレス</th>
-          <td><%= f.text_field :email, class: "form-control" %></td>
+          <td><%= f.email_field :email, class: "form-control" %></td>
         </tr>
         <tr>
           <th>会員ステータス</th>
           <td>
-            <%= f.radio_button(:is_deleted, false) %>有効<%= "  " %>
+            <%= f.radio_button(:is_deleted, false) %>有効
             <%= f.radio_button(:is_deleted, true) %>退会
           </td>
         </tr>

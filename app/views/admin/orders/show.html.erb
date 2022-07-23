@@ -30,10 +30,9 @@
       <tr>
         <th>注文ステータス</th>
         <td>
-
           <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
           <div class="d-flex">
-              <%= f.select :status, options_for_select(Order.statuses_i18n.keys.map { |k| [Order.statuses_i18n[k], k]}, selected: @order.status),
+            <%= f.select :status, options_for_select(Order.statuses_i18n.keys.map { |k| [Order.statuses_i18n[k], k]}, selected: @order.status),
               {prompt: "選択してください"}, class: "prefecture-select form-control" %>
             <%= f.submit "更新", class: "ml-3 btn btn-template-reverse" %>
           </div>
@@ -62,9 +61,8 @@
               <td><%= order_detail.amount %></td>
               <td><%= order_detail.subtotal.to_s(:delimited) %></td>
               <td>
-                  
                 <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
-                <di class="d-flex">
+                <div class="d-flex">
                   <%= f.select :making_status, options_for_select(OrderDetail.making_statuses_i18n.keys.map { |k| [OrderDetail.making_statuses_i18n[k], k]}, selected: order_detail.making_status),
                   {prompt: "選択してください"}, class: "prefecture-select form-control" %>
                   <%= f.submit "更新", class: "ml-3 btn btn-template-reverse" %>
@@ -73,7 +71,7 @@
               </td>
             </tr>
             <!--商品合計金額(画面上非表示)-->
-            <% @total += @total + order_detail.subtotal %>
+            <% @total += order_detail.subtotal %>
             <!--ここまで-->
           <% end %>
         </tbody>
@@ -93,10 +91,7 @@
         </tr>
         <tr>
           <th>請求金額合計</th>
-          <!--画面上非表示-->
-          <% @total_cost = @total + @order.shipping_cost %>
-          <!--ここまで-->
-          <td><%= @total_cost.to_s(:delimited) %>円</td>
+          <td><%= (@total + @order.shipping_cost).to_s(:delimited) %>円</td>
         </tr>
       </table>
     </div>
