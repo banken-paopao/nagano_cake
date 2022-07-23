@@ -59,7 +59,7 @@
             <tr>
               <td><strong>お届け先</strong></td>
               <td>
-                〒<%= @order.postal_code + ' ' + @order.address %></br>
+                <%= @order.address_display %></br>
                 <%= @order.name %>
               </td>
             </tr>

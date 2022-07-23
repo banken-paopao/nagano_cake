@@ -17,9 +17,9 @@
       <p>¥<%= @item.with_tax_price.to_s(:delimited) %>（税込）</p>
         <p id="genre-btn"><%= link_to @item.genre.name, item_search_items_path(genre_id: @item.genre.id, model: "genre"),
         class: "button tag light-shadow py-3",style: "width: 135px" %></p>
-      <div class="mt-2">
-        <% if @item.is_active == true %>
-          <div class="text-success mt-1">販売中</div>
+      <div class="m-4">
+        <% if @item.is_active %>
+          <div class="text-success mt-3">販売中</div>
           <%= form_with model: @cart_item, url: cart_items_path do |f| %>
             <%= f.hidden_field :item_id, value: @item.id %>
             <div class="row d-flex">
