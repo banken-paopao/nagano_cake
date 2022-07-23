@@ -2,6 +2,7 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import 'button';
 @import 'favorite';
+@import 'sign_up';
 
 body {
   padding-top: 5.5rem;
@@ -139,6 +140,7 @@ ul, li {
   }
 }
 
+/*カスタマー側のtopページ*/
 .main-top {
   position: relative;
   width: 100%;
@@ -173,6 +175,7 @@ ul, li {
   }
 }
 
+/*aboutページ*/
 .main-about {
   &1 {
     width: 100%;
@@ -453,90 +456,6 @@ ul, li {
   .nav.show {
     opacity: 0.8;
     visibility: visible;
-  }
-}
-
-.input{
-  &-last-name {
-    width: 320px;
-    left: -42px;
-    @media screen and (max-width: 991px) {
-      width: 200px;
-    }
-    @media screen and (max-width: 768px) {
-      width: 100px;
-    }
-    &-kana {
-      width: 320px;
-      left: -52px;
-      @media screen and (max-width: 991px) {
-        width: 200px;
-      }
-      @media screen and (max-width: 768px) {
-        width: 100px;
-      }
-    }
-  }
-  &-first-name {
-    width: 320px;
-    right: -92px;
-    @media screen and (max-width: 1200px) {
-      right: -10px;
-    }
-    @media screen and (max-width: 991px) {
-      width: 200px;
-    }
-    @media screen and (max-width: 768px) {
-      width: 100px;
-      right: -16px;
-    }
-    &-kana {
-      width: 320px;
-      right: -80px;
-      @media screen and (max-width: 1200px) {
-        right: 0px;
-      }
-      @media screen and (max-width: 991px) {
-        width: 200px;
-      }
-      @media screen and (max-width: 768px) {
-        width: 100px;
-        right: -6px;
-      }
-    }
-  }
-  &-text-area {
-    width: 320px;
-    @media screen and (max-width: 768px) {
-      width: 200px;
-    }
-  }
-  &-address-area {
-    width: 770px;
-    @media screen and (max-width: 1200px) {
-      width: 690px;
-    }
-    @media screen and (max-width: 991px) {
-      width: 440px;
-    }
-    @media screen and (max-width: 991px) {
-      width: 440px;
-    }
-    @media screen and (max-width: 768px) {
-      width: 260px;
-    }
-  }
-    &-button-area {
-    width: 800px;
-    @media screen and (max-width: 1200px) {
-      width: 690px;
-    }
-    @media screen and (max-width: 991px) {
-      width: 440px;
-    }
-    @media screen and (max-width: 768px) {
-      width: 200px;
-    }
   }
 }
 
