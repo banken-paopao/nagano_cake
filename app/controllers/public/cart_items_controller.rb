@@ -18,15 +18,14 @@ class Public::CartItemsController < ApplicationController
 
   def destroy_all
     current_customer.cart_items.destroy_all
-
   end
 
   def create
-    #カート内にある同じ商品をすべて取得
+    # カート内にある同じ商品をすべて取得
     now_cart = current_customer.cart_items.where(item_id: params[:cart_item][:item_id])
     cart_item = current_customer.cart_items.new(cart_item_params)
-    unless now_cart.blank?
-      #存在した時は購入個数を足して一つにまとめる
+    if now_cart.present?
+      # 存在した時は購入個数を足して一つにまとめる
       now_cart.each do |item|
         cart_item.amount += item.amount
         item.destroy
@@ -43,7 +42,8 @@ class Public::CartItemsController < ApplicationController
   end
 
   private
+
   def cart_item_params
-      params.require(:cart_item).permit(:item_id, :amount)
+    params.require(:cart_item).permit(:item_id, :amount)
   end
 end

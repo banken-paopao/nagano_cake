@@ -45,12 +45,11 @@ class Customer < ApplicationRecord
       validates :last_name_kana
     end
     with_options numericality: { only_integer: true } do
-      validates :postal_code, length: {is: 7}
+      validates :postal_code, length: { is: 7 }
       validates :telephone_number
     end
   end
   validates :is_deleted, inclusion: { in: [true, false] }
-
 
   def full_name
     last_name + "　" + first_name
@@ -65,6 +64,6 @@ class Customer < ApplicationRecord
   end
 
   def all_with_tax_price
-    cart_items.inject(0){|total, cart_item| total + cart_item.subtotal}
+    cart_items.inject(0) { |total, cart_item| total + cart_item.subtotal }
   end
 end
