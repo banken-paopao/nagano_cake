@@ -2,23 +2,23 @@ class Admin::GenresController < ApplicationController
   before_action :authenticate_admin!
   def index
     @genre = Genre.new
-    @genres = create_order
+    @genres = Genre.create_order(params[:page])
   end
 
   def create
     @genre = Genre.new(genre_params)
-    @genres = create_order
+    @genres = Genre.create_order(params[:page])
     @genre.save
   end
 
   def edit
     @genre = Genre.find(params[:id])
-    @genres = create_order
+    @genres = Genre.create_order(params[:page])
   end
 
   def update
     @genre = Genre.find(params[:id])
-    @genres = update_order
+    @genres = Genre.update_order(params[:page])
     @genre.update(genre_params)
   end
 
@@ -27,13 +27,4 @@ class Admin::GenresController < ApplicationController
   def genre_params
     params.require(:genre).permit(:name)
   end
-
-  def create_order
-    Genre.page(params[:page]).order(created_at: :DESC)
-  end
-
-  def update_order
-    Genre.page(params[:page]).order(updated_at: :DESC)
-  end
-
 end

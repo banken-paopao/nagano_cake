@@ -4,6 +4,7 @@
       <h5 class="border-bottom"><%= @customer.full_name %>さんの会員情報編集</h5>
     </div>
   </div>
+  <%= render "layouts/error", obj: @customer %>
   <div class="card col-8 mt-3 mx-auto py-5 shadow">
     <%= form_with model: @customer, url: admin_customer_path, method: :patch do |f| %>
       <table class="col-md-10 mt-3" cellpadding="10">
