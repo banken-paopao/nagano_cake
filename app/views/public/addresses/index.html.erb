@@ -1,35 +1,17 @@
 <div class="container mypage">
-
   <div class="row">
     <div class="col-lg-5 mt-3">
       <div class="col-12 mt-5 mb-3 mx-auto"><h4 class="my-auto mypage-title">配送先登録/一覧</h4></div>
     </div>
   </div>
   <%= render "layouts/error", obj: @address %>
-
   <div class="row">
     <div class="col-10 mt-3 offset-1">
       <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
-
-        <div class="field-group  form-group">
-          <%= f.label :postal_code, "郵便番号（ハイフンなし）", class: "col-4" %>
-          <%= f.text_field :postal_code, placeholder: "1234567", class: "col-4 form-control d-inline-block col-4" %>
-        </div>
-
-        <div class="field-group form-group mt-1">
-          <%= f.label :address,"住所", class: "col-4" %>
-          <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-6 form-control d-inline-block" %>
-        </div>
-
-        <div class="field-group form-group  mt-1">
-          <%= f.label :name, "宛名", class: "col-4" %>
-          <%= f.text_field :name, placeholder: "令和通子", class: "col-4 form-control d-inline-block" %>
-          <%= f.submit "新規登録", class: "btn btn-template-reverse ml-5 my-auto" %>
-        </div>
+       <%= render "form", text: "新規登録", f: f %>
       <% end %>
     </div>
   </div>
-
   <table class="table table-bordered mt-5">
     <thead class="bg-light text-center">
       <tr class="table-color text-center">
