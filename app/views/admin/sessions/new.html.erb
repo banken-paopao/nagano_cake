@@ -1,7 +1,16 @@
+<div class=" d-flex align-items-center justify-content-center pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto text-center">
+        <img src="/assets/logo2.png" alt="ロゴ" width="180" height="60" class="mb-2">
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
-    <div class="col-8 mx-auto">
-      <div class="card shadow mt-5">
+    <div class="col-11 col-md-8 col-lg-6 mx-auto">
+      <div class="card shadow">
         <div class="card-body text-secondary">
           <div class="card-title border-bottom mb-3">管理者ログイン</div>
           <%= form_with model: @admin, url: new_admin_session_path do |f| %>
@@ -14,11 +23,12 @@
               <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
             </div>
             <div class="actions form-group text-right">
-              <%= f.submit "ログイン", class: "btn btn-primary" %>
+              <%= f.submit "ログイン", class: "btn btn-block btn-template-reverse" %>
             </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>

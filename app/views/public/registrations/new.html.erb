@@ -1,77 +1,115 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-5">
-      <h2 class="p-2 mb-2 bg-light text-center mt-3">新規会員登録</h2>
-    </div>
-  </div>
-
-  <%= form_with model: @customer, url: customer_registration_path do |f| %>
-    <%= render "public/shared/error_messages", resource: resource %>
-
+<div class="d-flex align-items-center justify-content-center pt-5">
+  <div class="container">
     <div class="row">
-      <div class="col-lg-10 mb-5">
-        <table class="table table-borderless">
-          <tr>
-            <td><%= f.label :"名前" %></td>
-            <td>
-              <%= f.label :"（姓）" %>
-              <%= f.text_field :last_name, style: "width: 30%" %>
-              <%= f.label :"（名）" %>
-              <%= f.text_field :first_name, style: "width: 30%" %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= f.label :"フリガナ" %></td>
-            <td>
-              <%= f.label :"(セイ)" %>
-              <%= f.text_field :last_name_kana, style: "width: 30%" %>
-              <%= f.label :"（メイ）" %>
-              <%= f.text_field :first_name_kana, style: "width: 30%" %>
-            </td>
-          </tr>
-          <tr>
-            <td><%= f.label :"メールアドレス" %></td>
-            <td><%= f.email_field :email, style: "width: 30%" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :"郵便番号（ハイフンなし）" %></td>
-            <td><%= f.text_field :postal_code, style: "width: 30%" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :"住所" %></td>
-            <td><%= f.text_field :address, style: "width: 70%" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :"電話番号（ハイフンなし）" %></td>
-            <td><%= f.text_field :telephone_number, style: "width: 30%" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :"パスワード（6文字以上）" %></td>
-            <td> <%= f.password_field :password, autocomplete: "new-password", style: "width: 30%" %></td>
-          </tr>
-          <tr>
-            <td><%= f.label :"パスワード（確認用）" %></td>
-            <td><%= f.password_field :password_confirmation, autocomplete: "new-password", style: "width: 30%" %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><%= f.submit "新規登録", class: "btn btn-success btn-lg w-50" %></td>
-          </tr>
-        </table>
+      <div class="mx-auto text-center">
+        <img src="/assets/logo2.png" alt="ロゴ" width="180" height="60" class="mb-2">
       </div>
     </div>
-  <% end %>
-
-  <div class="row">
-    <div class="col-5">
-      <h3 class="p-2 mb-2 bg-light text-center">既に登録済みの方</h3>
-    </div>
   </div>
-
+</div>
+<div class="container sign-in-area">
   <div class="row">
-    <div class="col-5 offset-2">
-      <%= link_to "こちら", new_session_path(resource_name) %>からログインしてください。
+    <div class="col-12 col-md-12 col-lg-12 mx-auto mb-5">
+      <div class="card shadow">
+        <div class="card-body text-secondary">
+          <div class="card-title border-bottom mb-3"><h3>新規会員登録</h3></div>
+          <%= form_with model: @customer, url: customer_registration_path do |f| %>
+          <%= render "public/shared/error_messages", resource: resource %>
+            <div class="row">
+              <div class="col-lg-12">
+                <table class="table text-nowrap table-borderless">
+                  <tr>
+                    <div class="field form-group">
+                      <td><%= f.label :"名前", class: "col-form-label" %></td>
+                      <td colspan="10">
+                        <div class="d-flex">
+                          <div class="d-inline-block position-relative input-last-name">
+                            <span><%= f.label :last_name, "(姓)", class: "form-label d-inline-block pt-2" %>&nbsp;&nbsp;</span>
+                            <span><%= f.text_field :last_name, autofocus: true, placeholder: "令和", class: "form-control d-inline-block" %></span>
+                          </div>
+                          <div class="d-inline-block position-relative input-first-name">
+                            <span><%= f.label :first_name, "(名)", class: "form-label  d-inline-block pt-2" %>&nbsp;&nbsp;</span>
+                            <span><%= f.text_field :first_name, class: "form-control  d-inline-block", placeholder: "道子" %></span>
+                            </div>
+                        </div>
+                      </td>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div class="field form-group">
+                      <td><%= f.label :"フリガナ", class: "col-form-label" %></td>
+                      <td>
+                        <div class="d-flex">
+                          <div class="d-inline-block position-relative input-last-name-kana">
+                            <span><%= f.label :last_name_kana, "(セイ)", class: "form-label d-inline-block pt-2" %>&nbsp;</span>
+                            <span><%= f.text_field :last_name_kana, placeholder: "レイワ", class: "form-control d-inline-block" %></span>
+                          </div>
+                          <div class="d-inline-block position-relative input-first-name-kana">
+                            <span><%= f.label :first_name_kana, "(メイ)", class: "form-label d-inline-block pt-2" %>&nbsp;</span>
+                            <span><%= f.text_field :first_name_kana, placeholder: "ミチコ", class: "form-control d-inline-block" %></span>
+                          </div>
+                        </div>
+                      </td>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div class="field form-group">
+                      <td><%= f.label :email, "メールアドレス", class: "form-label" %></td>
+                      <td><%= f.email_field :email, autocomplete: "email", placeholder: "sample@example.com", class: "form-control input-text-area" %></td>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div class="field form-group">
+                      <td><%= f.label :postal_code, "郵便番号(ハイフンなし)", class: "form-label" %></td>
+                      <td><%= f.text_field :postal_code, placeholder: "0000000000", class: "form-control input-text-area" %></td>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div class="field form-group">
+                      <td><%= f.label :address, "住所", class: "form-label" %></td>
+                      <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "form-control input-address-area" %></td>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div class="field form-group">
+                      <td><%= f.label :telephone_number, "電話番号(ハイフンなし)", class: "form-label" %></td>
+                      <td><%= f.text_field :telephone_number, placeholder: "0000000", class: "form-control input-text-area" %></td>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div class="field form-group">
+                      <td><%= f.label :password, "パスワード(6文字以上)", class: "form-label" %></td>
+                      <td><%= f.password_field :password, autocomplete: "new-password", class: "form-control input-text-area" %></td>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div class="field form-group">
+                      <td><%= f.label :password_confirmation, "パスワード(確認用)", class: "form-label" %></td>
+                      <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control input-text-area" %></td>
+                    </div>
+                  </tr>
+                  <tr>
+                    <div class="actions form-group" >
+                      <td class=" text-center" colspan="10"><%= f.submit "新規登録", class: "btn btn-block btn-template-reverse input-button-area" %></td>
+                    </div>
+                  </tr>
+                  <% end %>
+                  <tr>
+                    <td class="text-center" colspan="10">
+                      <div class="sign-up-link text-center">
+                        <span><i class="fa-solid fa-caret-right"></i> すでに登録済みの方 <i class="fa-solid fa-caret-left"></i></span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center" colspan="10">
+                      <%= link_to "ログインはこちら", new_session_path(resource_name) , class: "btn btn-block btn-template input-button input-btn-area" %>
+                    </td>
+                  </tr>
+               </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-
 </div>

@@ -1,0 +1,122 @@
+.btn-template {
+  display: inline-block;
+  margin: 0 .1em .6em 0;
+  padding: 0.375rem 0.75rem;
+  color: #EC6D4E;
+  border: 1px solid #EC6D4E;
+  transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out;
+  &:hover {
+    background-color: #ffae8a;
+    border: 1px solid #EC6D4E;
+    color: #fff;
+  }
+  &:active {
+    background-color: #ffae8a;
+    border: 1px solid #EC6D4E;
+    color: #fff;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(236, 109, 78, .5);
+  }
+}
+
+.btn-template-reverse {
+  display: inline-block;
+  margin: 0 .1em .6em 0;
+  padding: 0.375rem 0.75rem;
+  color: #fff;
+  background-color: #ffae8a;
+  border: 1px solid #EC6D4E;
+  transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out;
+  &:hover {
+    background-color: #e26447;
+    border: 1px solid #EC6D4E;
+    color: #fff;
+  }
+  &:active {
+    background-color: #e26447;
+    border: 1px solid #EC6D4E;
+    color: #fff;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(236, 109, 78, .5);
+  }
+}
+
+.btn-template-index {
+  display: inline-block;
+  margin: 0 .1em .6em 0;
+  padding: 0.375rem 0.75rem;
+  color: #fff;
+  background-color: #ffae8a;
+  border: 1px solid #EC6D4E;
+  transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out;
+  &:hover {
+    background-color: rgba(255, 174, 138, .6);
+    border: 1px solid #e04926;
+    color: #fff;
+  }
+  &:active {
+    background-color: rgba(255, 174, 138, .8);
+    border: 1px solid #e03209;
+    color: #fff;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(236, 109, 78, .5);
+  }
+}
+
+.btn-template-about {
+  display: inline-block;
+  font-size: 18pt;
+  margin: 0 .1em .6em 0;
+  padding: 0.375rem 0.75rem;
+  background-color: #ffae8a;
+  color: #fff;
+  border: 1px solid #EC6D4E;
+  transition: color 0.15s ease-in-out,
+  background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out;
+  &:hover {
+    background-color: #e26447;
+    border: 1px solid #EC6D4E;
+    color: #fff;
+  }
+  &:active {
+    background-color: #e26447;
+    border: 1px solid #EC6D4E;
+    color: #fff;
+  }
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(236, 109, 78, .5);
+  }
+}
+
+.search-btn {
+  position:relative;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  &:hover {
+    transition: 0.1s;
+    top: -2px;
+  }
+  &:active {
+    transition: 0.1s;
+    top: 0;
+  }
+  &:link, &:visited, &:hover, &:active, &:focus {
+    outline: none
+  }
+}

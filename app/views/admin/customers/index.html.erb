@@ -6,8 +6,8 @@
   </div>
   <div class="row mt-5">
     <table class="table text-secondary table-hover">
-      <thead class="table-secondary">
-        <tr>
+      <thead>
+        <tr class="table-color">
           <th>会員ID</th>
           <th>氏名</th>
           <th>メールアドレス</th>
@@ -31,5 +31,8 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+  <div class="row justify-content-center">
+    <%= paginate @customers %>
   </div>
 </div>

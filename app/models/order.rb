@@ -17,15 +17,30 @@
 class Order < ApplicationRecord
   belongs_to :customer
   has_many :order_details, dependent: :destroy
-  
-  enum payment_method: {credit_card: 0, transfar: 1}
-  enum status: {wait: 0, confirm: 1, making: 2, preparing: 3, finish: 4}
-  
+
+  enum payment_method: { credit_card: 0, transfar: 1 }
+  enum status: { wait: 0, confirm: 1, making: 2, preparing: 3, finish: 4 }
+
+  with_options presence: true do
+    validates :address
+    validates :name
+    validates :postal_code, length: { is: 7 }
+    validates :shipping_cost, numericality: { only_integer: true }
+    validates :customer_id
+  end
+  validates :payment_method, inclusion: { in: Order.payment_methods.keys }
+  validates :status, inclusion: { in: Order.statuses.keys }
+
+  def default_sipping_cost
+    # 配送料
+    800
+  end
+
   def address_display
     '〒' + postal_code.to_s + ' ' + address
   end
-  
+
   def total_amount
-    self.order_details.inject(0){|total, order_detail| total + order_detail.amount}
+    order_details.inject(0) { |total, order_detail| total + order_detail.amount }
   end
 end

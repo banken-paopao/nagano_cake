@@ -12,8 +12,8 @@
     </span>
   </div>
   <table class="table text-secondary table-hover">
-    <thead class="table-secondary">
-      <tr>
+    <thead>
+      <tr class="table-color">
         <th>商品ID</th>
         <th>商品名</th>
         <th>税抜価格</th>
@@ -51,4 +51,7 @@
       <% end %>
     </tbody>
   </table>
+  <div class="row justify-content-center">
+    <%= paginate @items %>
+  </div>
 </div>

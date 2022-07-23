@@ -1,45 +1,44 @@
+<div class=" d-flex align-items-center justify-content-center pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto text-center">
+        <img src="/assets/logo2.png" alt="ロゴ" width="180" height="60" class="mb-2">
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-5">
-      <h2 class="p-2 mb-2 bg-light text-center mt-3">ログイン</h2>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-5 offset-1">
-      <p class="p-2 mb-2 bg-light text-center mt-3">会員の方はこちらからログイン</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-10 text-center mt-5">
-      <%= form_with model: @customer, url: new_customer_session_path do |f| %>
-        <div class="field-group offset-1 mt-1">
-          <%= f.label :"メールアドレス", class: "col-4" %>
-          <%= f.email_field :email, style: "width: 50%" %>
+    <div class="col-11 col-md-8 col-lg-6 mx-auto">
+      <div class="card shadow">
+        <div class="card-body text-secondary">
+          <div class="card-title border-bottom mb-3"><h3>ログイン</h3></div>
+          <p class="mb-2 card-text mt-3">会員の方はこちらからログイン</p>
+          <%= form_with model: @customer, url: new_customer_session_path do |f| %>
+            <div class="field form-group">
+              <%= f.label :email, "メールアドレス" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
+            </div>
+            <div class="field form-group">
+              <%= f.label :password, "パスワード" %>
+              <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+            </div>
+            <div class="actions form-group text-right">
+              <%= f.submit "ログイン", class: "btn btn-block btn-template-reverse" %>
+            </div>
+          <% end %>
+          <div class="row">
+            <div class="col text-center">
+              <div class="sign-up-link">
+                <span class="card-text"><i class="fa-solid fa-caret-right card-text"></i> 会員登録がお済みでない方 <i class="fa-solid fa-caret-left"></i></span>
+              </div>
+            </div>
+            <div class="col-12">
+              <%= link_to "新規登録はこちら", new_registration_path(resource_name), class: "btn btn-block btn-template" %>
+            </div>
+          </div>
         </div>
-
-        <div class="feild-group offset-1 mt-1">
-          <%= f.label :"パスワード", class: "col-4"  %>
-          <%= f.password_field :password, style: "width: 50%" %>
-        </div>
-
-        <div class="field-group offset-4 col-6 mt-2">
-          <%= f.submit "ログイン", class: "btn btn-success tn-lg w-50" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-5 offset-1">
-      <p class="p-2 mb-2 bg-light text-center mt-5">会員登録がお済みでない方</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-5 offset-3 mt-4">
-      <%= link_to "こちら", new_registration_path(resource_name) %>から新規登録を行なってください。
+      </div>
     </div>
   </div>
 </div>

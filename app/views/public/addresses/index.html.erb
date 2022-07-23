@@ -1,29 +1,30 @@
-<div class="container">
+<div class="container mypage">
 
   <div class="row">
-    <div class="col-lg-5 mb-3">
-      <h2 class="p-2 mb-2 bg-light text-center mt-3">配送先登録/一覧</h2>
+    <div class="col-lg-5 mt-3">
+      <div class="col-12 mt-5 mb-3 mx-auto"><h4 class="my-auto mypage-title">配送先登録/一覧</h4></div>
     </div>
   </div>
+  <%= render "layouts/error", obj: @address %>
 
   <div class="row">
     <div class="col-10 mt-3 offset-1">
       <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
 
-        <div class="field-group">
-          <%= f.label :"郵便番号（ハイフンなし）", class: "col-4" %>
-          <%= f.text_field :postal_code, placeholder: "1234567", class: "col-4" %>
+        <div class="field-group  form-group">
+          <%= f.label :postal_code, "郵便番号（ハイフンなし）", class: "col-4" %>
+          <%= f.text_field :postal_code, placeholder: "1234567", class: "col-4 form-control d-inline-block col-4" %>
         </div>
 
-        <div class="field-group mt-1">
-          <%= f.label :"住所", class: "col-4" %>
-          <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-6" %>
+        <div class="field-group form-group mt-1">
+          <%= f.label :address,"住所", class: "col-4" %>
+          <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "col-6 form-control d-inline-block" %>
         </div>
 
-        <div class="field-group mt-1">
-          <%= f.label :"宛名", class: "col-4" %>
-          <%= f.text_field :name, placeholder: "令和通子", class: "col-4" %>
-          <%= f.submit "新規登録", class: "btn btn-success offset-2" %>
+        <div class="field-group form-group  mt-1">
+          <%= f.label :name, "宛名", class: "col-4" %>
+          <%= f.text_field :name, placeholder: "令和通子", class: "col-4 form-control d-inline-block" %>
+          <%= f.submit "新規登録", class: "btn btn-template-reverse ml-5 my-auto" %>
         </div>
       <% end %>
     </div>
@@ -31,7 +32,7 @@
 
   <table class="table table-bordered mt-5">
     <thead class="bg-light text-center">
-      <tr>
+      <tr class="table-color text-center">
         <th>郵便番号</th>
         <th>住所</th>
         <th>宛名</th>
@@ -45,11 +46,14 @@
           <td style = "width: 30%"><%= address.address %></td>
           <td style = "width: 20%"><%= address.name %></td>
           <td style = "width: 20%">
-            <%= link_to "編集する", edit_address_path(address), class: "btn btn-success ml-3" %>
-            <%= link_to "削除する", address_path(address), method: :delete, data: { confirm: "本当に削除しますか？"}, class: "btn btn-danger ml-2" %>
+            <%= link_to "編集する", edit_address_path(address), class: "btn btn-template-reverse ml-3" %>
+            <%= link_to "削除する", address_path(address), method: :delete, data: { confirm: "本当に削除しますか？"}, class: "btn btn-outline-danger btn-template ml-2" %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <div class="row justify-content-center">
+    <%= paginate @addresses %>
+  </div>
 </div>

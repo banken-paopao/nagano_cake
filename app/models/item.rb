@@ -12,11 +12,19 @@
 #  genre_id     :integer          not null
 #
 class Item < ApplicationRecord
+  belongs_to :genre
   has_many :cart_items,    dependent: :destroy
   has_many :order_details, dependent: :destroy
-  belongs_to :genre
+  has_many :favorites,     dependent: :destroy
 
   has_one_attached :image
+
+  with_options presence: true do
+    validates :name, length: { maximum: 50 }
+    validates :introduction, length: { maximum: 400 }
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  end
+  validates :is_active, inclusion: { in: [true, false] }
 
   def get_image(width, height)
     unless image.attached?
@@ -40,5 +48,9 @@ class Item < ApplicationRecord
     else
       Item.where(genre_id: search_value)
     end
+  end
+
+  def favorited_by?(customer)
+    favorites.exists?(customer_id: customer.id)
   end
 end

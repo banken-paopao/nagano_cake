@@ -6,8 +6,8 @@
   </div>
   <div class="row  mt-5">
     <table class="table text-secondary table-hover">
-      <thead class="table-secondary">
-        <tr>
+      <thead>
+        <tr class="table-color">
           <th>購入日時</th>
           <th>購入者</th>
           <th>注文個数</th>
@@ -25,5 +25,8 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+  <div class="row justify-content-center">
+    <%= paginate @orders %>
   </div>
 </div>
