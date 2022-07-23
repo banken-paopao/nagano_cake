@@ -11,8 +11,9 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = current_customer
     if @customer.update(customer_params)
-      redirect_to my_page_customers_path
+      redirect_to my_page_customers_path, notice: "会員情報の編集に成功しました"
     else
+      flash[:danger] = "会員情報の編集に失敗しました"
       render :edit
     end
   end
@@ -23,7 +24,7 @@ class Public::CustomersController < ApplicationController
   def withdraw
     current_customer.update(is_deleted: true)
     sign_out current_customer
-    redirect_to root_path
+    redirect_to root_path, notice: "正常に退会しました"
   end
 
   def customer_params

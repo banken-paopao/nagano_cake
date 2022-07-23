@@ -2,8 +2,6 @@ class Public::CartItemsController < ApplicationController
   before_action :authenticate_customer!
 
   def index
-    # 消費税込みの合計の値段の初期定義
-    @all_with_tax_price = 0
   end
 
   def update
@@ -32,11 +30,12 @@ class Public::CartItemsController < ApplicationController
       end
     end
     if cart_item.save
-      redirect_to cart_items_path
+      redirect_to cart_items_path, notice: "カートに商品を追加しました"
     else
       @item = Item.find(params[:cart_item][:item_id])
       @cart_item = CartItem.new
       @genres = Genre.all
+      flash[:danger] = "商品の追加に失敗しました"
       render 'public/items/show'
     end
   end
