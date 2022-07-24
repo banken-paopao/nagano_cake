@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: addresses
+#
+#  id          :integer          not null, primary key
+#  address     :string           not null
+#  name        :string           not null
+#  postal_code :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  customer_id :integer          not null
+#
+
+one:
+  customer_id: 1
+  postal_code: MyString
+  address: MyString
+  name: MyString
+
+two:
+  customer_id: 1
+  postal_code: MyString
+  address: MyString
+  name: MyString

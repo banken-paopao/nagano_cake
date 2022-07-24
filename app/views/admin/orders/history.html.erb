@@ -1,0 +1,32 @@
+<div class="container py-5 text-secondary">
+  <div class="row">
+    <div class="col-lg-3">
+      <h5 class="border-bottom"><%= @customer.last_name %><%= @customer.first_name %>さんの注文履歴</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8 align-self-center">
+      <table class="table mt-3 text-secondary table-hover">
+        <thead>
+          <tr class="table-color">
+            <th>購入日時</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M'), admin_order_path(order.id) %></td>
+              <td><%= order.total_amount %></td>
+              <td><%= order.status_i18n %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="row justify-content-center">
+        <%= paginate @orders %>
+      </div>
+    </div>
+  </div>
+</div>

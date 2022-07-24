@@ -1,0 +1,2 @@
+$("#cart_<%= @cart_item.id %> .sub-total").html("<%= @cart_item.subtotal.to_s(:delimited) %>");
+$(".all-with-tax-price").html("<%= current_customer.all_with_tax_price.to_s(:delimited) %>");

@@ -1,0 +1,67 @@
+<div class="container mypage">
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="col-12 mt-5 mb-3 mx-auto"><h4 class="my-auto mypage-title">会員情報編集</h4></div>
+    </div>
+  </div>
+  <div class="card shadow mt-5">
+    <%= form_with model: @customer, url: information_customers_path do |f| %>
+      <%= render "public/shared/error_messages", resource: @customer %>
+      <div class="row mt-5">
+        <div class="col-lg-10 mb-5">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td><%= f.label :"名前" %></td>
+                <td><%= f.label :last_name, "(姓)" %></td>
+                <td><%= f.text_field :last_name, class: 'form-control form-control-sm' %></td>
+                <td></td>
+                <td><%= f.label :first_name, "(名)" %></td>
+                <td><%= f.text_field :first_name, class: 'form-control form-control-sm' %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :"フリガナ" %></td>
+                <td><%= f.label :last_name_kana, "(セイ)" %></td>
+                <td><%= f.text_field :last_name_kana, class: 'form-control form-control-sm' %></td>
+                <td></td>
+                <td><%= f.label :first_name_kana, "(メイ)" %></td>
+                <td><%= f.text_field :first_name_kana, class: 'form-control form-control-sm' %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :email, "メールアドレス" %></td>
+                <td></td>
+                <td><%= f.email_field :email, class: 'form-control form-control-sm' %></td>
+                <td colspan="3"></td>
+              </tr>
+              <tr>
+                <td><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></td>
+                <td></td>
+                <td><%= f.text_field :postal_code, class: 'form-control form-control-sm' %></td>
+                <td colspan="3"></td>
+              </tr>
+              <tr>
+                <td><%= f.label :address, "住所" %></td>
+                <td></td>
+                <td colspan="4"><%= f.text_field :address, class: 'form-control form-control-sm', style: "width: 100%" %></td>
+              </tr>
+              <tr>
+                <td><%= f.label :telephone_number, "電話番号(ハイフンなし)" %></td>
+                <td></td>
+                <td><%= f.text_field :telephone_number, class: 'form-control form-control-sm' %></td>
+                <td colspan="3"></td>
+              </tr>
+              </tr>
+                <td></td>
+                <td></td>
+                <td><%= f.submit "編集内容を保存", class: "btn btn-template-reverse" %></td>
+                <td></td>
+                <td></td>
+                <td><%= link_to "退会する", unsubscribe_customers_path, class: 'btn btn-md btn-outline-danger' %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>  

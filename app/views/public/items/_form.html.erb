@@ -1,0 +1,13 @@
+<%= form_with url: item_search_items_path, method: :get do |f| %>
+  <div class="d-flex pl-2">
+    <div class="input-group">
+      <%= f.text_field :content, placeholder: "商品名で検索", class: "form-control rounded-pill" %>
+      <%= f.hidden_field :model, value: "item" %>
+    </div>
+    <span class="input-group-btn input-group-append search-btn-content">
+      <%= button_tag(type: "submit", class: "search-btn") do %>
+        <i class="fa fa-search"></i>
+      <% end %>
+    </span>
+  </div>
+<% end %>

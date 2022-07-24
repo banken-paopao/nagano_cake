@@ -1,0 +1,78 @@
+<div class="container order-show">
+  <div class="row">
+    <div class="col-12 mt-4 mb-3 mx-auto"><h4 class="my-auto order-title">注文履歴詳細</h4></div>
+  </div>
+  <div class="row ml-3">
+    <div class="col-12 col-lg-7">
+      <p class="mb-1"><strong>注文情報</strong></p>
+      <table class="table table-bordered shadow-sm p-3 mb-5 rounded">
+        <tbody>
+          <tr>
+            <td class="table-color" style="width: 20%">注文日</td>
+            <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td class="table-color align-middle" style="width: 20%">配送先</td>
+            <td>
+              〒<%= @order.postal_code %></br>
+              <%= @order.address %></br>
+              <%= @order.name %>
+            </td>
+          </tr>
+          <tr>
+            <td class="table-color" style="width: 20%">支払い方法</td>
+            <td><%= @order.payment_method_i18n %></td>
+          </tr>
+          <tr>
+            <td class="table-color" style="width: 20%">ステータス</td>
+            <td><%= @order.status_i18n %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-12 col-lg-3 pl-lg-5">
+      <p class="mb-1"><strong>請求情報</strong></p>
+      <table class="table table-bordered shadow-sm p-3 mb-5 rounded">
+        <tbody>
+          <tr>
+            <td class="table-color" style="width: 50%">合計金額</td>
+            <td><%= (@order.total_payment - @order.shipping_cost).to_s(:delimited) %></td>
+          </tr>
+          <tr>
+            <td class="table-color">配送料</td>
+            <td><%= @order.shipping_cost.to_s(:delimited) %></td>
+          </tr>
+          <tr>
+            <td class="table-color"><strong>ご請求額</strong></td>
+            <td><%= @order.total_payment.to_s(:delimited) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row ml-3">
+    <div class="col-md-12 col-lg-8 mr-auto">
+      <p class="mb-1"><strong>注文内容</strong></p>
+      <table class="table table-bordered shadow-sm p-3 mb-5 rounded">
+        <thead>
+          <tr class="table-color">
+            <th>商品</th>
+            <th style="width: 18%">単価（税込）</th>
+            <th style="width: 10%">個数</th>
+            <th style="width: 10%">小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.order_details.each do |detail| %>
+            <tr>
+              <td><%= detail.item.name %></td>
+              <td><%= detail.price.to_s(:delimited) %></td>
+              <td><%= detail.amount %></td>
+              <td><%= (detail.price * detail.amount).to_s(:delimited) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

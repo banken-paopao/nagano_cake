@@ -73,4 +73,13 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+  config.hosts << "45dc71fe6a0245ecaa2a253931c33daf.vfs.cloud9.ap-northeast-1.amazonaws.com"
+  config.hosts << "a13227aed9704a329896c744df1b65a0.vfs.cloud9.ap-northeast-1.amazonaws.com"
+  config.hosts << "5406d65641fa45169c9b1cc6437d3d69.vfs.cloud9.ap-northeast-1.amazonaws.com"
+  config.hosts << "62bdc0673d4044dda7f0fac4f1785fde.vfs.cloud9.ap-northeast-1.amazonaws.com"
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+  config.active_job.queue_adapter = :inline
+  config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+    html_tag
+  end
 end

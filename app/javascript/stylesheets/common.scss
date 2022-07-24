@@ -1,0 +1,235 @@
+body {
+  padding-top: 5.5rem;
+  font-family: 'FOT-筑紫A丸ゴシック Std M', '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体',
+  YuGothic, 'Hiragino Sans', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+main {
+  min-height: 85vh;
+  background: #FAFAF2;
+}
+
+header, footer {
+  border: 1px solid #d3d3d3;
+  &.admin-sign-in {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+header, .footer-bottom, .title {
+  background-color: #ffae8a;
+  &-text{
+    color: #fff;
+    border-radius: 4px;
+  }
+}
+
+.title {
+  margin-top: 32px;
+}
+
+.footer-bottom {
+  height: 60px;
+}
+
+.navbar li{
+  margin: 0 10px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.error-messages {
+  border: 2px solid red;
+  background-color: #ffcccc;
+  >ul {
+    >li {
+      list-style: square;
+    }
+  }
+}
+
+.social-link {
+  background-color: #ffae8a;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  & a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    color: #fff;
+  }
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;
+  color: #ffae8a;
+  background: transparent;
+}
+
+.page-item.active .page-link{
+  background-color: #ffae8a;
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #ffe2d5;
+  border-radius: 15px;
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;
+  border-style: solid; border-color: #ffae8a63;
+  outline: none;
+  background-color: #fffffc;
+  color: #ffae8a;
+  outline: none;
+}
+
+.pagination>li>a:focus {
+  box-shadow: 0 0 0 0.2rem rgba(236, 109, 78, .5);
+}
+
+.page-item.active .page-link{
+  border-color: transparent;
+}
+
+/* PCでは非表示にしておく */
+.nav_toggle,
+.nav {
+  display: none;
+}
+
+.table-color{
+  background: #ffe2d5;
+}
+
+/* スマホサイズで見た場合のスタイル */
+@media screen and (max-width: 991px) {
+  .navbar-nav{
+    display: none;
+  }
+/* ハンバーガーのマーク */
+  .nav_toggle {
+    display: block;
+    position: relative;
+    width: 1.75rem;
+    height: 1.5rem;
+    margin-right: 10px;
+    z-index: 2;
+  }
+  .nav_toggle i {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    position: absolute;
+    transition: transform 0.5s, opacity 0.5s;
+  }
+  .nav_toggle i:nth-child(1) {
+    top: 0;
+  }
+  .nav_toggle i:nth-child(2) {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  .nav_toggle i:nth-child(3) {
+    bottom: 0;
+  }
+
+  /* クリックされた後のハンバーガーのマーク */
+  .nav_toggle.show i:nth-child(1) {
+    transform: translateY(10px) rotate(-45deg);
+    background-color: #333;
+  }
+  .nav_toggle.show i:nth-child(2) {
+    opacity: 0;
+  }
+  .nav_toggle.show i:nth-child(3) {
+    transform: translateY(-12px) rotate(45deg);
+    background-color: #333;
+  }
+
+  /* クリックで表示されるメニュー：クリックされる前 */
+  .nav {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+    background-color: #fff;
+    z-index: 1;
+  }
+  .nav_menu_li {
+    margin-bottom: 30px;
+  }
+  .nav_menu_li a {
+    margin: 30px;
+    color: #ee6557;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  /* クリックで表示されるメニュー：クリックされた後 */
+  .nav.show {
+    opacity: 0.8;
+    visibility: visible;
+  }
+}
+
+.item-image{
+  height: 500px;
+  width: 500px;
+  }
+  th,td {
+    border:none;
+  }
+  a{
+    font-size: 15px;
+  }
+
+.slider {
+  margin:0 auto;
+  img {
+    max-width: 100%;
+    height: 500px;
+    width: 800px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin: 0 auto;
+    filter: drop-shadow(8px 5px 4px rgba(0, 0, 0, 0.4));
+  }
+  >.slick {
+    &-prev {
+      left: 8%;
+    }
+    &-next{
+      right: 8%;
+    }
+    &-prev, &-next {
+    z-index: 100;
+    }
+  }
+}
+

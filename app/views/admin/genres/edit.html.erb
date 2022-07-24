@@ -1,0 +1,33 @@
+<div class="container py-5 text-secondary">
+  <div class="row">
+    <div class="col-lg-3">
+      <h5 class="border-bottom">ジャンル編集</h5>
+    </div>
+  </div>
+  <div id="genre_error">
+    <%= render "layouts/error", obj: @genre %>
+  </div>
+  <div class="row mt-5">
+    <div class="col-lg-5">
+      <%= render "form", text: "変更を保存", genre: @genre %>
+    </div>
+    <div class="col-lg-6 offset-lg-1">
+      <table class="table table-hover">
+        <thead>
+          <tr class="table-color">
+            <th>
+              ジャンル
+            </th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody id="genre_new">
+          <%= render "index", genres: @genres %>
+        </tbody>
+      </table>
+      <div class="row justify-content-center genre_page">
+        <%= render "genre_page", genres: @genres %>
+      </div>
+    </div>
+  </div>
+</div>

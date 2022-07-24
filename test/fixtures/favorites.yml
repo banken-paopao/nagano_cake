@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: favorites
+#
+#  id          :integer          not null, primary key
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  customer_id :integer          not null
+#  item_id     :integer          not null
+#
+
+one:
+  customer_id: 1
+  item_id: 1
+
+two:
+  customer_id: 1
+  item_id: 1
